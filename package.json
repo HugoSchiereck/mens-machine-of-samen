@@ -1,0 +1,25 @@
+{
+  "name": "mens-machine-of-samen",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Interactief spel voor de ICT open dag: raad wie het maakte, een mens, een machine of samen.",
+  "type": "module",
+  "scripts": {
+    "dev": "node node_modules/concurrently/dist/bin/concurrently.js -k -n server,app -c blue,green \"node --watch server/index.js\" \"node node_modules/vite/bin/vite.js\"",
+    "build": "node node_modules/vite/bin/vite.js build",
+    "start": "node server/index.js",
+    "open-dag": "node node_modules/vite/bin/vite.js build && node server/index.js"
+  },
+  "dependencies": {
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@fontsource-variable/nunito-sans": "^5.3.0",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "vite": "^5.4.11"
+  }
+}

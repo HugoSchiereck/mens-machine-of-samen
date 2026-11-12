@@ -1,0 +1,1945 @@
+{
+  "_uitleg": "Kaarten voor Mens, Machine of Samen. Zie README.md voor het formaat. Coördinaten zijn relatief (0–1) op het 3:4-podium; 'straal' is relatief aan de breedte. Alles met status 'concept' is voorbeeldinhoud die de groep vervangt door eigen, gemeten werk. 'banen' verwijst naar id's in banen.json. 'onderwerp' verwijst naar de onderwerpen in banen.json; bezoekers geven per kaart aan hoe leuk ze het onderwerp vinden. Kaarten met media-id 'verhaal' zijn echte gebeurtenissen, als tekst verteld (status 'echt', bron in onthulling.bron). Vier oude voorbeeldkaarten staan op actief: false omdat een verhaalkaart hetzelfde onderwerp behandelt (zie 'vervangenDoor').",
+  "kaarten": [
+    {
+      "id": "voetbalclub-site",
+      "titel": "Website voor een voetbalclub",
+      "onderwerp": "websites-bouwen",
+      "soort": "ontwerp",
+      "categorie": "sport",
+      "hobbyWereld": "sport",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "voetbal-site",
+          "versie": "eind"
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "AI maakte de opzet en de eerste teksten, een student maakte de site leesbaar, veilig en getest.",
+        "wieDoetWat": {
+          "ai": "Indeling, kleuren en eerste teksten",
+          "mens": "Leesbaar, veilig en getest met echte leden"
+        },
+        "vlakken": [
+          {
+            "x": 0,
+            "y": 0.0625,
+            "b": 1,
+            "h": 0.267,
+            "door": "ai",
+            "uitleg": "Indeling, kleurenschema en kopteksten: door AI gemaakt."
+          },
+          {
+            "x": 0.044,
+            "y": 0.3375,
+            "b": 0.417,
+            "h": 0.0625,
+            "door": "mens",
+            "uitleg": "Knop leesbaar gemaakt: eerst lichtgeel op wit, nu zwart op geel."
+          },
+          {
+            "x": 0,
+            "y": 0.429,
+            "b": 1,
+            "h": 0.233,
+            "door": "mens",
+            "uitleg": "Lange tekst ingekort tot drie kernpunten, nadat een test liet zien dat niemand hem uitlas."
+          },
+          {
+            "x": 0,
+            "y": 0.6625,
+            "b": 1,
+            "h": 0.3375,
+            "door": "mens",
+            "uitleg": "Formulier beveiligd: gegevens gaan versleuteld (https) en worden veilig opgeslagen."
+          }
+        ],
+        "tijd": {
+          "zonderAI": {
+            "minuten": null,
+            "schatting": false,
+            "resultaat": "werkt",
+            "ok": true
+          },
+          "alleenAI": {
+            "minuten": null,
+            "schatting": false,
+            "resultaat": "3 fouten, formulier onveilig",
+            "ok": false
+          },
+          "samen": {
+            "minuten": null,
+            "schatting": false,
+            "resultaat": "werkt",
+            "ok": true
+          }
+        },
+        "banen": [
+          "ux-designer",
+          "front-end-developer",
+          "back-end-developer",
+          "security-specialist"
+        ]
+      },
+      "makingOf": {
+        "maker": "[naam student]",
+        "prompt": "Maak een website voor amateurvoetbalclub SV Kraaienburg met een inschrijfformulier voor nieuwe leden. Clubkleuren rood en wit.",
+        "promptIsVoorbeeld": true,
+        "aiVersie": {
+          "type": "mockup",
+          "id": "voetbal-site",
+          "versie": "ai"
+        },
+        "eindVersie": {
+          "type": "mockup",
+          "id": "voetbal-site",
+          "versie": "eind"
+        },
+        "fouten": [
+          {
+            "x": 0.253,
+            "y": 0.369,
+            "straal": 0.11,
+            "uitleg": "Knoptekst onleesbaar door te weinig contrast",
+            "vak": "UX-design"
+          },
+          {
+            "x": 0.5,
+            "y": 0.84,
+            "straal": 0.16,
+            "uitleg": "Inschrijfformulier verstuurt en bewaart gegevens onbeveiligd",
+            "vak": "Back-end & security",
+            "extra": [
+              {
+                "x": 0.255,
+                "y": 0.031,
+                "straal": 0.08
+              }
+            ]
+          },
+          {
+            "x": 0.5,
+            "y": 0.546,
+            "straal": 0.13,
+            "uitleg": "Tekst veel te lang: leden haken af",
+            "vak": "UX-onderzoek"
+          }
+        ],
+        "wijzigingen": [
+          {
+            "wat": "Knop: lichtgeel op wit → zwart op geel",
+            "waarom": "De knop was onleesbaar, zeker op een telefoon in de zon",
+            "vak": "UX-design"
+          },
+          {
+            "wat": "Lange welkomsttekst → drie kernpunten",
+            "waarom": "In een test las niemand de lange tekst uit",
+            "vak": "UX-onderzoek"
+          },
+          {
+            "wat": "Formulier via https, veilige opslag",
+            "waarom": "Namen en e-mailadressen van leden (ook kinderen) moeten beschermd zijn",
+            "vak": "Back-end & security"
+          }
+        ],
+        "promptDuel": [
+          {
+            "niveau": "vaag",
+            "prompt": "maak een site voor een voetbalclub",
+            "resultaat": "Een algemene site zonder clubnaam, met nepteksten en een formulier dat nergens heen gaat.",
+            "checks": {
+              "werkt": false,
+              "veilig": false,
+              "leesbaar": false
+            }
+          },
+          {
+            "niveau": "gemiddeld",
+            "prompt": "Maak een website voor SV Kraaienburg met een inschrijfformulier. Clubkleuren rood en wit.",
+            "resultaat": "Ziet er goed uit en het formulier doet iets, maar de knop is onleesbaar en de gegevens gaan onbeveiligd.",
+            "checks": {
+              "werkt": true,
+              "veilig": false,
+              "leesbaar": false
+            }
+          },
+          {
+            "niveau": "expert",
+            "prompt": "Maak een website voor SV Kraaienburg voor ouders en kinderen van 5–16 jaar. Kleurcontrast volgens WCAG AA, maximaal drie zinnen per blok, inschrijfformulier via https met validatie en alleen naam en e-mail.",
+            "resultaat": "Bijna goed in één keer. Testen met echte leden blijft nodig.",
+            "checks": {
+              "werkt": true,
+              "veilig": true,
+              "leesbaar": true
+            }
+          }
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "schoolfeest-flyer",
+      "titel": "Flyer voor het schoolfeest",
+      "onderwerp": "ontwerpen",
+      "soort": "ontwerp",
+      "categorie": "creatief",
+      "hobbyWereld": "creatief",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "schoolfeest-flyer",
+          "versie": "ai"
+        }
+      ],
+      "antwoord": "machine",
+      "onthulling": {
+        "kort": "Deze flyer kwam in één keer uit een AI. Niemand heeft hem gecontroleerd, en dat zie je.",
+        "wieDoetWat": {
+          "ai": "Alles: tekst, kleuren en opmaak",
+          "mens": "Alleen één zin als opdracht. Niemand controleerde het resultaat."
+        },
+        "vlakken": [
+          {
+            "x": 0.05,
+            "y": 0.07,
+            "b": 0.9,
+            "h": 0.317,
+            "door": "ai",
+            "uitleg": "Kleuren, glitter-effect en opmaak: allemaal door AI."
+          },
+          {
+            "x": 0.05,
+            "y": 0.4,
+            "b": 0.9,
+            "h": 0.0625,
+            "door": "ai",
+            "uitleg": "Engelse slogan, bedacht door AI. Past niet bij een Nederlandse school."
+          },
+          {
+            "x": 0.05,
+            "y": 0.696,
+            "b": 0.9,
+            "h": 0.079,
+            "door": "ai",
+            "uitleg": "Verzonnen datum: 31 februari bestaat niet!"
+          }
+        ],
+        "tijd": {
+          "zonderAI": {
+            "minuten": null,
+            "schatting": false,
+            "resultaat": "klopt",
+            "ok": true
+          },
+          "alleenAI": {
+            "minuten": null,
+            "schatting": false,
+            "resultaat": "4 fouten",
+            "ok": false
+          },
+          "samen": {
+            "minuten": null,
+            "schatting": false,
+            "resultaat": "klopt",
+            "ok": true
+          }
+        },
+        "banen": [
+          "ux-designer",
+          "software-tester"
+        ]
+      },
+      "makingOf": {
+        "maker": "[naam student]",
+        "prompt": "Maak een flyer voor een schoolfeest in de aula, entree 5 euro.",
+        "promptIsVoorbeeld": true,
+        "aiVersie": {
+          "type": "mockup",
+          "id": "schoolfeest-flyer",
+          "versie": "ai"
+        },
+        "eindVersie": {
+          "type": "mockup",
+          "id": "schoolfeest-flyer",
+          "versie": "eind"
+        },
+        "fouten": [
+          {
+            "x": 0.5,
+            "y": 0.431,
+            "straal": 0.1,
+            "uitleg": "Engelse slogan: past niet bij de doelgroep",
+            "vak": "Communicatie & doelgroep"
+          },
+          {
+            "x": 0.5,
+            "y": 0.735,
+            "straal": 0.085,
+            "uitleg": "31 februari bestaat niet",
+            "vak": "Testen & controleren"
+          },
+          {
+            "x": 0.5,
+            "y": 0.804,
+            "straal": 0.06,
+            "uitleg": "Tijd en plek bijna onleesbaar: klein en weinig contrast",
+            "vak": "UX-design"
+          },
+          {
+            "x": 0.5,
+            "y": 0.902,
+            "straal": 0.08,
+            "uitleg": "Typfout ‘receptoe’ in de belangrijkste informatie",
+            "vak": "Communicatie & doelgroep"
+          }
+        ],
+        "wijzigingen": [
+          {
+            "wat": "Datum: 31 februari → 12 december",
+            "waarom": "AI verzint soms dingen die echt lijken",
+            "vak": "Testen & controleren"
+          },
+          {
+            "wat": "Slogan in het Nederlands",
+            "waarom": "De flyer is voor leerlingen en ouders",
+            "vak": "Communicatie & doelgroep"
+          },
+          {
+            "wat": "Tijd en plek groot en donker",
+            "waarom": "Dit is de info die iedereen zoekt",
+            "vak": "UX-design"
+          },
+          {
+            "wat": "Rustige kleuren, twee tinten",
+            "waarom": "Goedkoper printen en beter leesbaar",
+            "vak": "UX-design"
+          }
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "sollicitatiebrief",
+      "titel": "Sollicitatiebrief voor een bijbaan",
+      "onderwerp": "ai",
+      "soort": "tekst",
+      "categorie": "school-werk",
+      "hobbyWereld": "school-werk",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "sollicitatiebrief",
+          "versie": "eind"
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "AI gaf de opbouw, de student schreef er een eerlijke, persoonlijke brief van.",
+        "wieDoetWat": {
+          "ai": "Opbouw van de brief en nette zinnen",
+          "mens": "Echte feiten, eerlijke ervaring en een eigen toon"
+        },
+        "vlakken": [
+          {
+            "x": 0.11,
+            "y": 0.175,
+            "b": 0.78,
+            "h": 0.18,
+            "door": "mens",
+            "uitleg": "Echte feiten ingevuld: naam, leeftijd, welke baan en wanneer je kunt."
+          },
+          {
+            "x": 0.11,
+            "y": 0.365,
+            "b": 0.78,
+            "h": 0.135,
+            "door": "mens",
+            "uitleg": "De verzonnen ‘vijf jaar ervaring’ vervangen door wat Noor echt deed."
+          },
+          {
+            "x": 0.11,
+            "y": 0.59,
+            "b": 0.78,
+            "h": 0.18,
+            "door": "ai",
+            "uitleg": "Afsluiting en opbouw van de brief: voorstel van AI."
+          }
+        ],
+        "tijd": {
+          "zonderAI": {
+            "minuten": null,
+            "schatting": false,
+            "resultaat": "persoonlijk",
+            "ok": true
+          },
+          "alleenAI": {
+            "minuten": null,
+            "schatting": false,
+            "resultaat": "verzonnen ervaring",
+            "ok": false
+          },
+          "samen": {
+            "minuten": null,
+            "schatting": false,
+            "resultaat": "persoonlijk en eerlijk",
+            "ok": true
+          }
+        },
+        "banen": [
+          "ai-specialist",
+          "ux-designer"
+        ]
+      },
+      "makingOf": {
+        "maker": "[naam student]",
+        "prompt": "Schrijf een sollicitatiebrief voor een bijbaan als vakkenvuller.",
+        "promptIsVoorbeeld": true,
+        "aiVersie": {
+          "type": "mockup",
+          "id": "sollicitatiebrief",
+          "versie": "ai"
+        },
+        "eindVersie": {
+          "type": "mockup",
+          "id": "sollicitatiebrief",
+          "versie": "eind"
+        },
+        "fouten": [
+          {
+            "x": 0.5,
+            "y": 0.24,
+            "straal": 0.09,
+            "uitleg": "Placeholders laten staan: [Naam winkel], [functie], [Jouw naam]",
+            "vak": "AI-geletterdheid",
+            "extra": [
+              {
+                "x": 0.5,
+                "y": 0.129,
+                "straal": 0.07
+              },
+              {
+                "x": 0.25,
+                "y": 0.796,
+                "straal": 0.08
+              }
+            ]
+          },
+          {
+            "x": 0.5,
+            "y": 0.342,
+            "straal": 0.09,
+            "uitleg": "‘Vijf jaar ervaring’: verzonnen, je bent 15!",
+            "vak": "Kritisch denken & ethiek"
+          },
+          {
+            "x": 0.5,
+            "y": 0.496,
+            "straal": 0.1,
+            "uitleg": "Rijtje dure woorden zonder één echt voorbeeld",
+            "vak": "Communicatie"
+          }
+        ],
+        "wijzigingen": [
+          {
+            "wat": "Placeholders vervangen door echte namen",
+            "waarom": "Een werkgever ziet meteen dat het AI-tekst is",
+            "vak": "AI-geletterdheid"
+          },
+          {
+            "wat": "Verzonnen ervaring → echte ervaring in de kantine",
+            "waarom": "Liegen in een sollicitatie valt altijd uit",
+            "vak": "Kritisch denken & ethiek"
+          },
+          {
+            "wat": "Dure woorden → één concreet voorbeeld",
+            "waarom": "Een voorbeeld zegt meer dan vijf modewoorden",
+            "vak": "Communicatie"
+          },
+          {
+            "wat": "Beschikbaarheid toegevoegd",
+            "waarom": "Dat is wat de winkel echt wil weten",
+            "vak": "Communicatie"
+          }
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "herfstgedicht",
+      "titel": "Gedicht over de herfst",
+      "onderwerp": "ai",
+      "soort": "tekst",
+      "categorie": "creatief",
+      "hobbyWereld": "creatief",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "herfstgedicht"
+        }
+      ],
+      "antwoord": "machine",
+      "onthulling": {
+        "kort": "Dit gedicht kwam in een paar seconden uit een AI. Het rijmt netjes, maar zegt niets nieuws.",
+        "wieDoetWat": {
+          "ai": "Elk woord",
+          "mens": "Alleen de opdracht: ‘schrijf een gedicht over de herfst’"
+        },
+        "vlakken": [
+          {
+            "x": 0.161,
+            "y": 0.246,
+            "b": 0.722,
+            "h": 0.19,
+            "door": "ai",
+            "uitleg": "Dwarrelende bladeren, fluisterende wind: de bekendste herfstbeelden op een rij. AI kiest het meest voorspelbare woord."
+          },
+          {
+            "x": 0.161,
+            "y": 0.608,
+            "b": 0.722,
+            "h": 0.05,
+            "door": "ai",
+            "uitleg": "‘Tezaam’: een ouderwets woord dat er alleen staat omdat het rijmt."
+          }
+        ],
+        "banen": [
+          "ai-specialist"
+        ]
+      },
+      "status": "klaar",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "cijfer-code",
+      "titel": "Code die je gemiddelde cijfer berekent",
+      "onderwerp": "programmeren",
+      "soort": "code",
+      "categorie": "school-werk",
+      "hobbyWereld": "school-werk",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "cijfer-code",
+          "versie": "eind"
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "AI schreef de eerste versie, een student testte hem met echte cijfers en repareerde drie fouten.",
+        "wieDoetWat": {
+          "ai": "Eerste versie van de code en de berekening",
+          "mens": "Testen met echte invoer en fouten oplossen"
+        },
+        "vlakken": [
+          {
+            "x": 0,
+            "y": 0.1625,
+            "b": 1,
+            "h": 0.158,
+            "door": "mens",
+            "uitleg": "Komma's (6,5) en cijfers buiten 1–10 afgevangen. De student testte met echte invoer."
+          },
+          {
+            "x": 0,
+            "y": 0.44,
+            "b": 1,
+            "h": 0.079,
+            "door": "mens",
+            "uitleg": "Niets ingevuld? Geen crash meer."
+          },
+          {
+            "x": 0,
+            "y": 0.519,
+            "b": 1,
+            "h": 0.04,
+            "door": "ai",
+            "uitleg": "De berekening zelf kwam van AI en klopte meteen."
+          },
+          {
+            "x": 0,
+            "y": 0.598,
+            "b": 1,
+            "h": 0.079,
+            "door": "ai",
+            "uitleg": "Invoer en uitvoer: opzet door AI."
+          },
+          {
+            "x": 0,
+            "y": 0.729,
+            "b": 1,
+            "h": 0.271,
+            "door": "mens",
+            "uitleg": "Getest met echte cijfers: 6,5 7 8 geeft 7.2."
+          }
+        ],
+        "tijd": {
+          "zonderAI": {
+            "minuten": null,
+            "schatting": false,
+            "resultaat": "werkt",
+            "ok": true
+          },
+          "alleenAI": {
+            "minuten": null,
+            "schatting": false,
+            "resultaat": "crasht bij 6,5",
+            "ok": false
+          },
+          "samen": {
+            "minuten": null,
+            "schatting": false,
+            "resultaat": "werkt",
+            "ok": true
+          }
+        },
+        "banen": [
+          "back-end-developer",
+          "software-tester"
+        ]
+      },
+      "makingOf": {
+        "maker": "[naam student]",
+        "prompt": "Schrijf een Python-programma dat het gemiddelde van mijn cijfers berekent.",
+        "promptIsVoorbeeld": true,
+        "aiVersie": {
+          "type": "mockup",
+          "id": "cijfer-code",
+          "versie": "ai"
+        },
+        "eindVersie": {
+          "type": "mockup",
+          "id": "cijfer-code",
+          "versie": "eind"
+        },
+        "fouten": [
+          {
+            "x": 0.5,
+            "y": 0.222,
+            "straal": 0.08,
+            "uitleg": "Tekst wordt niet omgezet naar getallen: het programma crasht",
+            "vak": "Programmeren",
+            "extra": [
+              {
+                "x": 0.5,
+                "y": 0.9,
+                "straal": 0.12
+              }
+            ]
+          },
+          {
+            "x": 0.5,
+            "y": 0.262,
+            "straal": 0.07,
+            "uitleg": "Niets ingevuld? Dan deel je door nul en crasht het",
+            "vak": "Testen"
+          },
+          {
+            "x": 0.5,
+            "y": 0.341,
+            "straal": 0.08,
+            "uitleg": "Splitst op komma's, maar in Nederland typ je 6,5",
+            "vak": "Programmeren"
+          }
+        ],
+        "wijzigingen": [
+          {
+            "wat": "Tekst omzetten naar getallen, met 6,5 én 6.5",
+            "waarom": "Anders crasht het bij de eerste echte invoer",
+            "vak": "Programmeren"
+          },
+          {
+            "wat": "Controle op lege invoer",
+            "waarom": "Delen door nul laat het programma crashen",
+            "vak": "Testen"
+          },
+          {
+            "wat": "Alleen cijfers van 1 tot 10",
+            "waarom": "Een tikfout als 65 verpest je gemiddelde",
+            "vak": "Testen"
+          },
+          {
+            "wat": "Afronden op één decimaal",
+            "waarom": "7.1666666 leest niemand graag",
+            "vak": "Programmeren"
+          }
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "app-pitch",
+      "titel": "Pitch voor een app-idee",
+      "onderwerp": "ondernemen",
+      "soort": "presentatie",
+      "categorie": "school-werk",
+      "hobbyWereld": "school-werk",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "app-pitch"
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "AI maakte de slides en een eerste verdienmodel. Het onderzoek deed de student zelf: praten met leerlingen en snackbars.",
+        "wieDoetWat": {
+          "ai": "Opmaak, teksten en een eerste verdienmodel",
+          "mens": "Onderzoek bij echte klanten en de volgende stap"
+        },
+        "vlakken": [
+          {
+            "x": 0,
+            "y": 0.06,
+            "b": 1,
+            "h": 0.29,
+            "door": "ai",
+            "uitleg": "Naam, slogan en probleemomschrijving: voorstel van AI."
+          },
+          {
+            "x": 0.044,
+            "y": 0.375,
+            "b": 0.911,
+            "h": 0.315,
+            "door": "mens",
+            "uitleg": "Echt onderzoek: de student vroeg leerlingen wat ze willen."
+          },
+          {
+            "x": 0.044,
+            "y": 0.71,
+            "b": 0.911,
+            "h": 0.12,
+            "door": "ai",
+            "uitleg": "Verdienmodel bedacht door AI. Klopt het? Dat moet nog getest worden."
+          },
+          {
+            "x": 0.044,
+            "y": 0.85,
+            "b": 0.911,
+            "h": 0.115,
+            "door": "mens",
+            "uitleg": "De volgende stap kiest de student zelf: testen met echte snackbars."
+          }
+        ],
+        "banen": [
+          "product-owner",
+          "ict-ondernemer",
+          "ux-designer"
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "kanker-scans",
+      "titel": "Kanker opsporen op scans",
+      "onderwerp": "zorg",
+      "soort": "echte-wereld",
+      "vraag": "Wie doet het werk?",
+      "categorie": "zorg",
+      "hobbyWereld": "zorg",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "kanker-scan"
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "Software markeert in seconden verdachte plekken, een radioloog beoordeelt elke markering en beslist.",
+        "wieDoetWat": {
+          "ai": "Zoekt verdachte plekken op heel veel scans en wordt nooit moe",
+          "mens": "Beoordeelt, beslist en praat met de patiënt"
+        },
+        "vlakken": [
+          {
+            "x": 0.033,
+            "y": 0.092,
+            "b": 0.934,
+            "h": 0.625,
+            "door": "ai",
+            "uitleg": "AI markeert plekken die verdacht kunnen zijn, met een percentage."
+          },
+          {
+            "x": 0.033,
+            "y": 0.742,
+            "b": 0.934,
+            "h": 0.233,
+            "door": "mens",
+            "uitleg": "Een radioloog bekijkt elke markering. Plek 2 bleek een oud litteken: de AI zat ernaast."
+          }
+        ],
+        "banen": [
+          "zorg-ict",
+          "ai-specialist",
+          "data-analist"
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false,
+      "actief": false,
+      "vervangenDoor": "tumor-vinden"
+    },
+    {
+      "id": "weersvoorspelling",
+      "titel": "De weersvoorspelling",
+      "onderwerp": "data",
+      "soort": "echte-wereld",
+      "vraag": "Wie doet het werk?",
+      "categorie": "natuur",
+      "hobbyWereld": "natuur",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "weer"
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "Computers rekenen tientallen mogelijke weersverlopen door, een meteoroloog beslist over waarschuwingen.",
+        "wieDoetWat": {
+          "ai": "Rekent het weer door, steeds vaker met AI-modellen",
+          "mens": "Vergelijkt de modellen en beslist over code oranje"
+        },
+        "vlakken": [
+          {
+            "x": 0,
+            "y": 0.03,
+            "b": 1,
+            "h": 0.7,
+            "door": "ai",
+            "uitleg": "Temperatuur, wind en regen per uur: berekend door computermodellen."
+          },
+          {
+            "x": 0.044,
+            "y": 0.754,
+            "b": 0.911,
+            "h": 0.208,
+            "door": "mens",
+            "uitleg": "Een meteoroloog beslist of er een waarschuwing komt en schrijft wat je moet doen."
+          }
+        ],
+        "banen": [
+          "data-analist",
+          "ai-specialist"
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false,
+      "actief": false,
+      "vervangenDoor": "code-oranje"
+    },
+    {
+      "id": "var",
+      "titel": "De VAR bij voetbal",
+      "onderwerp": "netwerken",
+      "soort": "echte-wereld",
+      "vraag": "Wie beslist er?",
+      "categorie": "sport",
+      "hobbyWereld": "sport",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "var"
+        }
+      ],
+      "antwoord": "mens",
+      "onthulling": {
+        "kort": "Bij een VAR-check beslissen mensen. De techniek levert alleen de beelden.",
+        "wieDoetWat": {
+          "ai": "Camera's, beelden en een snelle verbinding",
+          "mens": "Terugkijken, overleggen en beslissen"
+        },
+        "vlakken": [
+          {
+            "x": 0.583,
+            "y": 0.1,
+            "b": 0.383,
+            "h": 0.2,
+            "door": "ai",
+            "uitleg": "Camera's en software leveren beelden uit veel hoeken."
+          },
+          {
+            "x": 0.033,
+            "y": 0.833,
+            "b": 0.934,
+            "h": 0.125,
+            "door": "mens",
+            "uitleg": "Video-scheidsrechters kijken terug, de scheidsrechter op het veld beslist."
+          }
+        ],
+        "banen": [
+          "netwerkbeheerder",
+          "data-analist"
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false,
+      "actief": false,
+      "vervangenDoor": "buitenspel-wk"
+    },
+    {
+      "id": "verkeerslichten",
+      "titel": "Verkeerslichten die op drukte reageren",
+      "onderwerp": "slimme-techniek",
+      "soort": "echte-wereld",
+      "vraag": "Wie doet het werk?",
+      "categorie": "verkeer",
+      "hobbyWereld": "verkeer",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verkeerslichten"
+        }
+      ],
+      "antwoord": "machine",
+      "onthulling": {
+        "kort": "Lussen in het wegdek voelen wie er wacht, de regelkast schakelt de lichten zelf. Mensen schreven vooraf de regels.",
+        "wieDoetWat": {
+          "ai": "Meet en schakelt elke seconde, dag en nacht",
+          "mens": "Bedacht vooraf de regels, zoals voorrang voor de bus"
+        },
+        "vlakken": [
+          {
+            "x": 0.22,
+            "y": 0.25,
+            "b": 0.62,
+            "h": 0.63,
+            "door": "ai",
+            "uitleg": "Detectielussen in het wegdek en de regelkast: die beslissen zelf welk licht groen wordt."
+          },
+          {
+            "x": 0.1,
+            "y": 0.896,
+            "b": 0.8,
+            "h": 0.075,
+            "door": "mens",
+            "uitleg": "Een verkeerskundige stelde het regelprogramma vooraf in."
+          }
+        ],
+        "banen": [
+          "embedded-engineer",
+          "data-analist"
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "muziek-jaaroverzicht",
+      "titel": "Je muziek-jaaroverzicht",
+      "onderwerp": "data",
+      "soort": "echte-wereld",
+      "categorie": "muziek-games",
+      "hobbyWereld": "muziek-games",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "muziek-jaar"
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "Algoritmes tellen alles op, mensen bedachten wat er leuk aan is en hoe het eruitziet.",
+        "wieDoetWat": {
+          "ai": "Telt je luistergedrag op, voor miljoenen mensen tegelijk",
+          "mens": "Bedenkt de weetjes, de luistertypes en het ontwerp"
+        },
+        "vlakken": [
+          {
+            "x": 0.055,
+            "y": 0.12,
+            "b": 0.89,
+            "h": 0.64,
+            "door": "ai",
+            "uitleg": "Minuten, top-artiesten en percentages: automatisch berekend."
+          },
+          {
+            "x": 0.055,
+            "y": 0.79,
+            "b": 0.89,
+            "h": 0.175,
+            "door": "mens",
+            "uitleg": "Mensen bedachten de luistertypes, de grapjes en het ontwerp. Data-analisten checken of de cijfers kloppen."
+          }
+        ],
+        "banen": [
+          "data-analist",
+          "ux-designer",
+          "front-end-developer"
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false,
+      "actief": false,
+      "vervangenDoor": "spotify-wrapped"
+    },
+    {
+      "id": "melkrobot",
+      "titel": "De melkrobot bij de boer",
+      "onderwerp": "slimme-techniek",
+      "soort": "verrassing",
+      "vraag": "Wie doet het werk?",
+      "categorie": "natuur",
+      "hobbyWereld": "natuur",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "melkrobot"
+        }
+      ],
+      "antwoord": "machine",
+      "onthulling": {
+        "kort": "De koe loopt zelf naar binnen en de robot melkt haar. De boer krijgt alleen een seintje als er iets mis is.",
+        "wieDoetWat": {
+          "ai": "Herkent de koe, zoekt de spenen en melkt",
+          "mens": "Krijgt meldingen en zorgt voor zieke koeien"
+        },
+        "vlakken": [
+          {
+            "x": 0,
+            "y": 0,
+            "b": 1,
+            "h": 0.654,
+            "door": "ai",
+            "uitleg": "De robot herkent de koe aan haar halsband en zoekt met een camera de spenen."
+          },
+          {
+            "x": 0.039,
+            "y": 0.796,
+            "b": 0.922,
+            "h": 0.154,
+            "door": "mens",
+            "uitleg": "De boer krijgt een melding en gaat zelf kijken bij koe 87."
+          }
+        ],
+        "banen": [
+          "embedded-engineer",
+          "data-analist"
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "sluis",
+      "titel": "Een sluis die op afstand opengaat",
+      "onderwerp": "netwerken",
+      "soort": "verrassing",
+      "vraag": "Wie doet het werk?",
+      "categorie": "verkeer",
+      "hobbyWereld": "verkeer",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "sluis"
+        }
+      ],
+      "antwoord": "mens",
+      "onthulling": {
+        "kort": "Een sluiswachter bedient de sluis van kilometers ver. ICT maakt dat mogelijk, maar de mens beslist.",
+        "wieDoetWat": {
+          "ai": "Camera's, sensoren en een veilige verbinding",
+          "mens": "Kijkt mee, praat met schippers en drukt op de knoppen"
+        },
+        "vlakken": [
+          {
+            "x": 0.028,
+            "y": 0.079,
+            "b": 0.944,
+            "h": 0.583,
+            "door": "ai",
+            "uitleg": "Camera's en sensoren maken bediening op afstand mogelijk."
+          },
+          {
+            "x": 0.028,
+            "y": 0.683,
+            "b": 0.944,
+            "h": 0.296,
+            "door": "mens",
+            "uitleg": "De sluiswachter kijkt mee en drukt zelf op de knoppen. De computer beslist niets."
+          }
+        ],
+        "banen": [
+          "netwerkbeheerder",
+          "security-specialist",
+          "embedded-engineer"
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "operatierobot",
+      "titel": "Een operatierobot in het ziekenhuis",
+      "onderwerp": "zorg",
+      "soort": "verrassing",
+      "vraag": "Wie opereert er?",
+      "categorie": "zorg",
+      "hobbyWereld": "zorg",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "operatierobot"
+        }
+      ],
+      "antwoord": "mens",
+      "onthulling": {
+        "kort": "De robot doet niets uit zichzelf. Een chirurg stuurt elke beweging vanaf een console.",
+        "wieDoetWat": {
+          "ai": "Maakt bewegingen kleiner en filtert trillen weg",
+          "mens": "Bepaalt elke beweging van de operatie"
+        },
+        "vlakken": [
+          {
+            "x": 0,
+            "y": 0.42,
+            "b": 1,
+            "h": 0.33,
+            "door": "ai",
+            "uitleg": "De robotarmen maken de bewegingen kleiner en filteren het trillen van de hand weg."
+          },
+          {
+            "x": 0,
+            "y": 0.75,
+            "b": 1,
+            "h": 0.25,
+            "door": "mens",
+            "uitleg": "Elke beweging komt van de chirurg aan de console. Laat de chirurg los, dan staat alles stil."
+          }
+        ],
+        "banen": [
+          "embedded-engineer",
+          "zorg-ict"
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "game-level",
+      "titel": "Een level in een platformgame",
+      "onderwerp": "games",
+      "soort": "game",
+      "categorie": "muziek-games",
+      "hobbyWereld": "muziek-games",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "game-level"
+        }
+      ],
+      "antwoord": "mens",
+      "onthulling": {
+        "kort": "Een level designer bedacht waar elk platform, elke munt en elk gat komt, en testte of het eerlijk is.",
+        "wieDoetWat": {
+          "ai": "De game-engine rekent zwaartekracht en botsingen uit",
+          "mens": "Ontwerpt het level en speelt het steeds opnieuw"
+        },
+        "vlakken": [
+          {
+            "x": 0.11,
+            "y": 0.354,
+            "b": 0.833,
+            "h": 0.3125,
+            "door": "mens",
+            "uitleg": "Platforms, munten en het gat met de hand neergezet, en steeds opnieuw getest."
+          },
+          {
+            "x": 0.155,
+            "y": 0.746,
+            "b": 0.094,
+            "h": 0.092,
+            "door": "ai",
+            "uitleg": "De game-engine rekent uit hoe hoog je springt en wanneer je valt."
+          }
+        ],
+        "banen": [
+          "game-developer",
+          "software-tester"
+        ]
+      },
+      "status": "concept",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "halve-seconde",
+      "titel": "De halve seconde",
+      "onderwerp": "programmeren",
+      "soort": "echt-gebeurd",
+      "vraag": "Wie vond de achterdeur?",
+      "categorie": "school-werk",
+      "hobbyWereld": "school-werk",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "halve-seconde",
+          "label": "Echt gebeurd · 2024",
+          "icoon": "slot",
+          "tekst": "In software op bijna elke Linux-server zat een verstopte achterdeur."
+        }
+      ],
+      "antwoord": "mens",
+      "onthulling": {
+        "kort": "Andres Freund, een software engineer bij Microsoft. Hij merkte dat inloggen een halve seconde langer duurde dan normaal, en zocht uit waarom.",
+        "wieDoetWat": {
+          "ai": "Automatische controles en scanners zagen niets bijzonders.",
+          "mens": "Zag dat iets niet klopte, bleef doorvragen en zocht het tot op de bodem uit."
+        },
+        "vlakken": [],
+        "banen": [
+          "back-end-developer",
+          "software-tester",
+          "security-specialist"
+        ],
+        "bron": {
+          "titel": "Gridinsoft: XZ Utils backdoor discovered",
+          "url": "https://blog.gridinsoft.com/xz-utils-backdoor-linux/"
+        }
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "code-van-google",
+      "titel": "De code van Google",
+      "onderwerp": "programmeren",
+      "soort": "code",
+      "vraag": "Wie schrijft die code?",
+      "categorie": "school-werk",
+      "hobbyWereld": "school-werk",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "code-van-google",
+          "label": "Echte wereld · 2024",
+          "icoon": "code",
+          "tekst": "Bij Google komt er elke dag enorm veel nieuwe code bij."
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "In 2024 werd meer dan een kwart van alle nieuwe code bij Google door AI gemaakt, en daarna door engineers gecontroleerd en goedgekeurd.",
+        "wieDoetWat": {
+          "ai": "Doet voorstellen voor stukken code.",
+          "mens": "Beoordeelt, test en verbetert de code, en beslist of die de app in mag."
+        },
+        "vlakken": [],
+        "banen": [
+          "back-end-developer",
+          "front-end-developer",
+          "software-tester"
+        ],
+        "bron": {
+          "titel": "TechRadar: more than a quarter of new code at Google is AI-generated",
+          "url": "https://www.techradar.com/pro/alphabet-ceo-says-more-than-a-quarter-of-new-code-at-google-is-ai-generated"
+        }
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "minecraft-wereld",
+      "titel": "Een Minecraft-wereld",
+      "onderwerp": "games",
+      "soort": "game",
+      "vraag": "Wie ontwierp dit landschap?",
+      "categorie": "muziek-games",
+      "hobbyWereld": "muziek-games",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "minecraft-wereld",
+          "label": "Echte wereld",
+          "icoon": "blok",
+          "tekst": "Elke nieuwe Minecraft-wereld heeft andere bergen, grotten en rivieren."
+        }
+      ],
+      "antwoord": "machine",
+      "onthulling": {
+        "kort": "Niemand zette die blokken neer. Code bouwt de hele wereld op uit één getal, de seed. Dat is niet eens AI, maar slimme regels.",
+        "wieDoetWat": {
+          "ai": "Rekent in een paar seconden een complete wereld uit.",
+          "mens": "Programmeurs schreven de regels waarmee de wereld gebouwd wordt. Wat spelers erop bouwen, is mensenwerk."
+        },
+        "vlakken": [],
+        "banen": [
+          "game-developer",
+          "back-end-developer"
+        ]
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "ai-detector",
+      "titel": "De AI-detector",
+      "onderwerp": "ai",
+      "soort": "tekst",
+      "vraag": "Wie schreef deze tekst?",
+      "categorie": "school-werk",
+      "hobbyWereld": "school-werk",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "ai-detector",
+          "label": "Echt gebeurd · 2023",
+          "icoon": "tekst",
+          "tekst": "Een AI-detector las deze tekst en gaf zijn oordeel.",
+          "citaat": "We the People of the United States, in Order to form a more perfect Union…"
+        }
+      ],
+      "antwoord": "mens",
+      "onthulling": {
+        "kort": "Mensen, in 1787: het is de Amerikaanse grondwet. Die tekst staat zo vaak in de trainingsdata van AI dat detectors hem voor AI-tekst aanzien.",
+        "wieDoetWat": {
+          "ai": "Gokte zelfverzekerd, en zat ernaast.",
+          "mens": "Snapt waarom de detector het mis heeft, en test AI-systemen voordat iemand erop vertrouwt."
+        },
+        "vlakken": [],
+        "banen": [
+          "ai-specialist",
+          "data-analist"
+        ],
+        "bron": {
+          "titel": "Why AI detectors think the US Constitution was written by AI (via AI Incident Database)",
+          "url": "https://incidentdatabase.ai/reports/3228"
+        }
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "tumor-vinden",
+      "titel": "Borstkanker opsporen",
+      "onderwerp": "zorg",
+      "soort": "echte-wereld",
+      "vraag": "Wie vond die tumoren?",
+      "categorie": "zorg",
+      "hobbyWereld": "zorg",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "tumor-vinden",
+          "label": "Echte wereld · Zweden",
+          "icoon": "scan",
+          "tekst": "Een Zweeds onderzoek bij ruim 100.000 vrouwen, vergeleken met de gewone controle."
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "AI markeerde verdachte plekken op de scans, maar radiologen namen de beslissing. Ze hadden er ook 44% minder beoordelingswerk door.",
+        "wieDoetWat": {
+          "ai": "Bekijkt elke scan en markeert plekken die verdacht kunnen zijn.",
+          "mens": "De radioloog beoordeelt elke markering, beslist en praat met de patiënt."
+        },
+        "vlakken": [],
+        "banen": [
+          "zorg-ict",
+          "ai-specialist",
+          "data-analist"
+        ],
+        "bron": {
+          "titel": "Axis Imaging News: MASAI-onderzoek",
+          "url": "https://axisimagingnews.com/?p=49350"
+        }
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "nachtwacht",
+      "titel": "De Nachtwacht",
+      "onderwerp": "ai",
+      "soort": "verrassing",
+      "vraag": "Wie schilderde die stukken?",
+      "categorie": "creatief",
+      "hobbyWereld": "creatief",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "nachtwacht",
+          "label": "Echt gebeurd · 2021",
+          "icoon": "lijst",
+          "tekst": "In 1715 werden er stroken van De Nachtwacht afgeknipt. In 2021 hingen ze er weer naast."
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "AI leerde de stijl van Rembrandt en maakte de stukken na, op basis van een oude kopie van Gerrit Lundens. Onderzoekers van het Rijksmuseum stuurden bij en controleerden.",
+        "wieDoetWat": {
+          "ai": "Leerde Rembrandts stijl en schilderde de ontbrekende stukken digitaal na.",
+          "mens": "Kozen de oude kopie als voorbeeld, stuurden de AI bij en keurden het resultaat."
+        },
+        "vlakken": [],
+        "banen": [
+          "ai-specialist",
+          "data-analist"
+        ]
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "schaakmatch",
+      "titel": "De schaakmatch",
+      "onderwerp": "ai",
+      "soort": "game",
+      "vraag": "Van wie verloor hij?",
+      "categorie": "muziek-games",
+      "hobbyWereld": "muziek-games",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "schaakmatch",
+          "label": "Echt gebeurd · 1997",
+          "icoon": "schaak",
+          "tekst": "In 1997 verloor wereldkampioen schaken Garri Kasparov een hele match."
+        }
+      ],
+      "antwoord": "machine",
+      "onthulling": {
+        "kort": "Van Deep Blue, een computer van IBM. Computers schaken al bijna dertig jaar beter dan mensen, en toch zijn mensen nog steeds de sterren.",
+        "wieDoetWat": {
+          "ai": "Rekende enorm veel zetten per seconde door.",
+          "mens": "Een team van IBM programmeerde Deep Blue. Schakers trainen nu juist mét de computer."
+        },
+        "vlakken": [],
+        "banen": [
+          "ai-specialist",
+          "game-developer"
+        ]
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "het-telefoontje",
+      "titel": "Het telefoontje",
+      "onderwerp": "beveiliging",
+      "soort": "echt-gebeurd",
+      "vraag": "Wat hackten ze als eerste?",
+      "categorie": "school-werk",
+      "hobbyWereld": "school-werk",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "het-telefoontje",
+          "label": "Echt gebeurd · 2023",
+          "icoon": "telefoon",
+          "tekst": "Hackers legden in 2023 de hotels en casino’s van MGM dagenlang plat."
+        }
+      ],
+      "antwoord": "mens",
+      "onthulling": {
+        "kort": "Een mens. De hackers belden de IT-helpdesk, deden zich voor als medewerker en kregen zo toegang. Zonder één regel code.",
+        "wieDoetWat": {
+          "ai": "Er hoefde geen computer gekraakt te worden om binnen te komen.",
+          "mens": "Security-specialisten trainen medewerkers en ontwerpen controles, zodat zo’n truc niet meer werkt."
+        },
+        "vlakken": [],
+        "banen": [
+          "security-specialist",
+          "ethisch-hacker",
+          "ict-support"
+        ]
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "de-nepmail",
+      "titel": "De nepmail",
+      "onderwerp": "beveiliging",
+      "soort": "echte-wereld",
+      "vraag": "Wie houdt ze tegen?",
+      "categorie": "school-werk",
+      "hobbyWereld": "school-werk",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "de-nepmail",
+          "label": "Echte wereld",
+          "icoon": "mail",
+          "tekst": "Elke dag worden er miljarden nepmails verstuurd. Jij ziet er bijna nooit een."
+        }
+      ],
+      "antwoord": "machine",
+      "onthulling": {
+        "kort": "Een spamfilter. Die beoordeelt elke mail in een fractie van een seconde, helemaal automatisch. Met de hand zou dat onmogelijk zijn.",
+        "wieDoetWat": {
+          "ai": "Herkent nepmails aan patronen en houdt ze automatisch tegen.",
+          "mens": "Security-specialisten passen het filter aan zodra criminelen nieuwe trucs verzinnen."
+        },
+        "vlakken": [],
+        "banen": [
+          "security-specialist",
+          "netwerkbeheerder"
+        ]
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "klik-verkeerslichten",
+      "titel": "Klik alle verkeerslichten",
+      "onderwerp": "beveiliging",
+      "soort": "verrassing",
+      "vraag": "Wie controleert hier wie?",
+      "categorie": "school-werk",
+      "hobbyWereld": "school-werk",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "klik-verkeerslichten",
+          "label": "Echte wereld",
+          "icoon": "raster",
+          "tekst": "‘Klik alle vakjes met verkeerslichten.’ Zo bewijs je dat je geen robot bent."
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "De website test of jij een mens bent, maar jij helpt de computer ook. Met een eerdere versie, waarin je woorden overtypte, zijn oude boeken en krantenarchieven gedigitaliseerd.",
+        "wieDoetWat": {
+          "ai": "Test of je je gedraagt als een mens of als een bot.",
+          "mens": "Jouw antwoorden leren de computer wat er op een plaatje of in een tekst staat. Security-specialisten bouwen de test zo dat bots er niet langs komen."
+        },
+        "vlakken": [],
+        "banen": [
+          "security-specialist",
+          "ai-specialist"
+        ]
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "groene-blokjes",
+      "titel": "De groene blokjes",
+      "onderwerp": "ontwerpen",
+      "soort": "ontwerp",
+      "vraag": "Wie bedacht die blokjes?",
+      "categorie": "muziek-games",
+      "hobbyWereld": "muziek-games",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "groene-blokjes",
+          "label": "Echt gebeurd · 2021",
+          "icoon": "blokjes",
+          "tekst": "Wordle-spelers delen hun score als blokjes, zonder het woord te verklappen."
+        }
+      ],
+      "antwoord": "mens",
+      "onthulling": {
+        "kort": "Een speler uit Nieuw-Zeeland. Zij deelde in december 2021 als eerste haar uitslag zo, en maker Josh Wardle bouwde het twee weken later als deelknop in het spel.",
+        "wieDoetWat": {
+          "ai": "Er kwam geen AI aan te pas.",
+          "mens": "Een speler bedacht het, de maker zag het en bouwde het in. Kijken wat gebruikers zelf al doen: dat is UX-werk."
+        },
+        "vlakken": [],
+        "banen": [
+          "ux-designer",
+          "game-developer",
+          "front-end-developer"
+        ],
+        "bron": {
+          "titel": "Video Game Canon: The history of Wordle",
+          "url": "https://videogamecanon.com/adventurelog/the-history-of-wordle"
+        }
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "netflix-plaatje",
+      "titel": "Het Netflix-plaatje",
+      "onderwerp": "ontwerpen",
+      "soort": "ontwerp",
+      "vraag": "Wie zorgt daarvoor?",
+      "categorie": "creatief",
+      "hobbyWereld": "creatief",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "netflix-plaatje",
+          "label": "Echte wereld",
+          "icoon": "play",
+          "tekst": "Jij en je vriend zien bij dezelfde Netflix-serie een ander plaatje."
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "Ontwerpers maken meerdere plaatjes per serie. Een algoritme kiest welk plaatje het best past bij wat jij vaak kijkt.",
+        "wieDoetWat": {
+          "ai": "Kiest per kijker het plaatje waarop die waarschijnlijk klikt.",
+          "mens": "Ontwerpers maken de plaatjes en testen wat werkt."
+        },
+        "vlakken": [],
+        "banen": [
+          "ux-designer",
+          "data-analist",
+          "front-end-developer"
+        ]
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "spotify-wrapped",
+      "titel": "Spotify Wrapped",
+      "onderwerp": "data",
+      "soort": "echte-wereld",
+      "vraag": "Wie maakte dat?",
+      "categorie": "muziek-games",
+      "hobbyWereld": "muziek-games",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "spotify-wrapped",
+          "label": "Echte wereld · elk jaar",
+          "icoon": "muziek",
+          "tekst": "Elke december krijg je Spotify Wrapped: jouw topnummers en luisterminuten."
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "Algoritmes berekenen jouw cijfers. Maar Wrapped kost meer dan een jaar werk, met honderden ontwerpers, datawetenschappers en marketeers.",
+        "wieDoetWat": {
+          "ai": "Rekent voor honderden miljoenen mensen hun luistercijfers uit.",
+          "mens": "Bedenken de verhalen, het ontwerp en de teksten, en checken of de cijfers kloppen."
+        },
+        "vlakken": [],
+        "banen": [
+          "data-analist",
+          "ux-designer",
+          "front-end-developer"
+        ],
+        "bron": {
+          "titel": "Business Insider: How does your Spotify Wrapped get made?",
+          "url": "https://www.aol.com/articles/does-spotify-wrapped-made-3-130004965.html"
+        }
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "scheldende-chatbot",
+      "titel": "De scheldende chatbot",
+      "onderwerp": "ondernemen",
+      "soort": "echt-gebeurd",
+      "vraag": "Wie zette de chatbot uit?",
+      "categorie": "school-werk",
+      "hobbyWereld": "school-werk",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "scheldende-chatbot",
+          "label": "Echt gebeurd · 2024",
+          "icoon": "chat",
+          "tekst": "Een klant kreeg de chatbot van DPD zover dat hij ging schelden."
+        }
+      ],
+      "antwoord": "mens",
+      "onthulling": {
+        "kort": "Mensen bij DPD. Ze zetten het AI-deel meteen uit, na een update die fout was gegaan.",
+        "wieDoetWat": {
+          "ai": "Deed precies wat de klant vroeg, ook toen dat slecht was voor het bedrijf.",
+          "mens": "Bepalen waar AI wel en niet wordt ingezet, en blijven controleren wat die doet."
+        },
+        "vlakken": [],
+        "banen": [
+          "product-owner",
+          "ict-support",
+          "ai-specialist"
+        ]
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "onleesbaar-adres",
+      "titel": "Het onleesbare adres",
+      "onderwerp": "slimme-techniek",
+      "soort": "verrassing",
+      "vraag": "Wie las het adres?",
+      "categorie": "verkeer",
+      "hobbyWereld": "verkeer",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "onleesbaar-adres",
+          "label": "Echte wereld · Nederland",
+          "icoon": "post",
+          "tekst": "Het adres is bijna onleesbaar. Toch ligt de kerstkaart op tijd op de mat."
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "Eerst scant een sorteermachine de postcode en het adres. Lukt dat niet, dan neemt een medewerker het over. Bij PostNL heet dat handcoderen.",
+        "wieDoetWat": {
+          "ai": "Leest de meeste adressen razendsnel, ook handgeschreven.",
+          "mens": "Ontcijfert wat de machine niet kan lezen. In december is dat zelfs een bijbaan."
+        },
+        "vlakken": [],
+        "banen": [
+          "embedded-engineer",
+          "data-analist"
+        ],
+        "bron": {
+          "titel": "Randstad: vacature post coderen bij PostNL",
+          "url": "https://www.randstad.nl/vacatures/748707/post-coderen-nacht"
+        }
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "code-oranje",
+      "titel": "Code oranje",
+      "onderwerp": "data",
+      "soort": "echte-wereld",
+      "vraag": "Wie besloot tot code oranje?",
+      "categorie": "natuur",
+      "hobbyWereld": "natuur",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "code-oranje",
+          "label": "Echte wereld · KNMI",
+          "icoon": "wolk",
+          "tekst": "Het KNMI waarschuwt. Scholen en evenementen passen hun plannen aan."
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "Computermodellen rekenen het weer door. Daarna schatten meteorologen in of het risico code oranje waard is, en op basis van dat overleg besluit het KNMI.",
+        "wieDoetWat": {
+          "ai": "Rekent veel mogelijke weersverwachtingen door.",
+          "mens": "Meteorologen wegen de uitkomsten en de gevolgen, en nemen het besluit."
+        },
+        "vlakken": [],
+        "banen": [
+          "data-analist",
+          "ai-specialist"
+        ],
+        "bron": {
+          "titel": "Weerplaza: weerwaarschuwingen, wanneer worden ze uitgegeven",
+          "url": "https://www.weerplaza.nl/weerinhetnieuws/weerweetjes/weerwaarschuwingen-wanneer-worden-ze-uitgegeven/7854/"
+        }
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "blauwe-schermen",
+      "titel": "De blauwe schermen",
+      "onderwerp": "netwerken",
+      "soort": "echt-gebeurd",
+      "vraag": "Wie loste het op?",
+      "categorie": "verkeer",
+      "hobbyWereld": "verkeer",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "blauwe-schermen",
+          "label": "Echt gebeurd · 2024",
+          "icoon": "scherm",
+          "tekst": "Juli 2024: door één foute update lagen vliegvelden, banken en ziekenhuizen plat."
+        }
+      ],
+      "antwoord": "mens",
+      "onthulling": {
+        "kort": "IT-beheerders. Ze moesten miljoenen computers één voor één met de hand opstarten en een bestand verwijderen. De computers konden zichzelf niet redden.",
+        "wieDoetWat": {
+          "ai": "Bleef vastlopen bij het opstarten en kon zichzelf niet repareren.",
+          "mens": "Gingen computer voor computer langs om het probleem op te lossen."
+        },
+        "vlakken": [],
+        "banen": [
+          "netwerkbeheerder",
+          "ict-support",
+          "software-tester"
+        ]
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "buitenspel-wk",
+      "titel": "Buitenspel op het WK",
+      "onderwerp": "netwerken",
+      "soort": "echte-wereld",
+      "vraag": "Wie besliste of het buitenspel was?",
+      "categorie": "sport",
+      "hobbyWereld": "sport",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "buitenspel-wk",
+          "label": "Echt gebeurd · WK 2022",
+          "icoon": "bal",
+          "tekst": "Op het WK van 2022 werd buitenspel tot op de centimeter bepaald."
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "Camera’s volgden elke speler en een sensor in de bal mat het moment van de pass. Het systeem gaf een signaal, de videoscheidsrechter controleerde en de scheidsrechter besliste.",
+        "wieDoetWat": {
+          "ai": "Volgde spelers en bal en trok automatisch de buitenspellijn.",
+          "mens": "De videoscheidsrechter controleerde het signaal, de scheidsrechter nam het besluit."
+        },
+        "vlakken": [],
+        "banen": [
+          "embedded-engineer",
+          "netwerkbeheerder",
+          "data-analist"
+        ]
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "de-nachtfoto",
+      "titel": "De nachtfoto",
+      "onderwerp": "slimme-techniek",
+      "soort": "verrassing",
+      "vraag": "Wie maakte de foto zo licht?",
+      "categorie": "creatief",
+      "hobbyWereld": "creatief",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "de-nachtfoto",
+          "label": "Echte wereld",
+          "icoon": "camera",
+          "tekst": "Een foto, bijna in het donker. Toch is hij scherp en licht."
+        }
+      ],
+      "antwoord": "machine",
+      "onthulling": {
+        "kort": "Je telefoon. Die maakt in een flits meerdere opnames, en een chip voegt ze automatisch samen tot één heldere foto.",
+        "wieDoetWat": {
+          "ai": "Combineert in een fractie van een seconde meerdere opnames tot één foto.",
+          "mens": "Jij koos het moment. Engineers bouwden de chip en de software die dit kunnen."
+        },
+        "vlakken": [],
+        "banen": [
+          "embedded-engineer",
+          "ai-specialist"
+        ]
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    },
+    {
+      "id": "marsrover",
+      "titel": "De Marsrover",
+      "onderwerp": "slimme-techniek",
+      "soort": "echte-wereld",
+      "vraag": "Wie stuurt de rover?",
+      "categorie": "verkeer",
+      "hobbyWereld": "verkeer",
+      "media": [
+        {
+          "type": "mockup",
+          "id": "verhaal",
+          "beeld": "marsrover",
+          "label": "Echte wereld · NASA",
+          "icoon": "rover",
+          "tekst": "Een signaal van de aarde naar Mars doet er soms ruim twintig minuten over."
+        }
+      ],
+      "antwoord": "samen",
+      "onthulling": {
+        "kort": "Engineers op aarde bepalen waar hij naartoe moet. Onderweg zoekt de rover zelf een route om de rotsen heen.",
+        "wieDoetWat": {
+          "ai": "Kijkt met camera’s om zich heen en kiest zelf een veilige route.",
+          "mens": "Engineers kiezen het doel en schrijven de software die zelf beslissingen neemt."
+        },
+        "vlakken": [],
+        "banen": [
+          "embedded-engineer",
+          "ai-specialist"
+        ]
+      },
+      "status": "echt",
+      "gecontroleerdDoorDocent": false
+    }
+  ],
+  "bonus": {
+    "id": "inlogpagina",
+    "titel": "Inlogpagina van het schoolportaal",
+    "soort": "vind-de-fout",
+    "intro": "Deze inlogpagina is door AI gemaakt. Er zitten vier beveiligingsfouten in. Vind ze!",
+    "seconden": 25,
+    "media": [
+      {
+        "type": "mockup",
+        "id": "inlogpagina"
+      }
+    ],
+    "fouten": [
+      {
+        "x": 0.5,
+        "y": 0.49,
+        "straal": 0.1,
+        "uitleg": "Het wachtwoord staat leesbaar in beeld. Iedereen die meekijkt, ziet het.",
+        "vak": "Security"
+      },
+      {
+        "x": 0.5,
+        "y": 0.76,
+        "straal": 0.1,
+        "uitleg": "De foutmelding verraadt het leerlingnummer én geeft een hint over het wachtwoord.",
+        "vak": "Security"
+      },
+      {
+        "x": 0.5,
+        "y": 0.877,
+        "straal": 0.08,
+        "uitleg": "‘We mailen je huidige wachtwoord’: dan is het wachtwoord onversleuteld opgeslagen.",
+        "vak": "Back-end & security"
+      },
+      {
+        "x": 0.255,
+        "y": 0.031,
+        "straal": 0.09,
+        "uitleg": "Geen https: wachtwoorden gaan onversleuteld over het netwerk.",
+        "vak": "Netwerken"
+      }
+    ],
+    "status": "concept",
+    "gecontroleerdDoorDocent": false,
+    "banen": [
+      "security-specialist",
+      "ethisch-hacker",
+      "ict-support"
+    ],
+    "onderwerp": "beveiliging"
+  }
+}

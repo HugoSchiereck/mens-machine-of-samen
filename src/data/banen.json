@@ -1,0 +1,425 @@
+{
+  "_uitleg": "ICT-banen voor 'Banen achter deze kaart', de ICT-match en het toekomstscherm. 'onderwerpen' geeft per baan aan hoe sterk een onderwerp erbij hoort (0–1); daarmee rekent de match. Bewust kwalitatief: vul 'startsalaris' alleen in met een echte bron en jaartal, en laat 'vakken' controleren door een docent. Startsalarissen: bruto per maand bij 40 uur, voor starters (0–2 jaar ervaring), uit de Nationale Beroepengids (UX: De Transparante Broker), geraadpleegd november 2026. Het zijn indicaties, geen beloftes; 'url' wijst naar de bron, 'bijgewerkt' is de datum die de bron zelf noemt (leeg als die niet bekend is).",
+  "banen": [
+    {
+      "id": "ux-designer",
+      "titel": "UX-designer",
+      "wat": "Zoekt uit hoe mensen een app of website gebruiken en ontwerpt hem zo dat het voor hen werkt.",
+      "aiDoet": "Maakt in seconden schermontwerpen, teksten en varianten.",
+      "jijDoet": "Praat met echte gebruikers, test en kiest wat voor déze mensen werkt. AI weet niet wie je gebruikers zijn.",
+      "pastBij": "Je ergert je aan onhandige apps en ziet meteen hoe het beter kan.",
+      "vakken": [
+        "UX-design",
+        "Gebruikersonderzoek"
+      ],
+      "onderwerpen": {
+        "ontwerpen": 1,
+        "websites-bouwen": 0.6,
+        "ondernemen": 0.3,
+        "games": 0.3
+      },
+      "startsalaris": {
+        "van": 3000,
+        "tot": null,
+        "niveau": "starter",
+        "bron": "De Transparante Broker (UX-specialist)",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": null,
+        "url": "https://detransparantebroker.nl/functie-details/ux-specialist/3474"
+      }
+    },
+    {
+      "id": "front-end-developer",
+      "titel": "Front-end developer",
+      "wat": "Bouwt alles wat je ziet en aanklikt op websites en in apps.",
+      "aiDoet": "Schrijft standaardcode en complete schermen.",
+      "jijDoet": "Bepaalt hoe het in elkaar zit, maakt het toegankelijk en snel, en vindt de fouten die AI erin stopt.",
+      "pastBij": "Je wilt meteen op je scherm zien wat je bouwt.",
+      "vakken": [
+        "Webdevelopment",
+        "Programmeren"
+      ],
+      "onderwerpen": {
+        "websites-bouwen": 1,
+        "programmeren": 0.6,
+        "ontwerpen": 0.5
+      },
+      "startsalaris": {
+        "van": 2900,
+        "tot": 3520,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": null,
+        "url": "https://www.nationaleberoepengids.nl/salaris/front-end-developer"
+      }
+    },
+    {
+      "id": "back-end-developer",
+      "titel": "Back-end developer",
+      "wat": "Bouwt de techniek achter de schermen: servers, databases en koppelingen.",
+      "aiDoet": "Genereert code en tests.",
+      "jijDoet": "Ontwerpt hoe het systeem werkt, bewaakt de gegevens en is verantwoordelijk als het misgaat.",
+      "pastBij": "Je wilt weten hoe dingen onder de motorkap werken.",
+      "vakken": [
+        "Programmeren",
+        "Databases"
+      ],
+      "onderwerpen": {
+        "programmeren": 1,
+        "websites-bouwen": 0.6,
+        "data": 0.4,
+        "beveiliging": 0.3
+      },
+      "startsalaris": {
+        "van": 2800,
+        "tot": 3440,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": null,
+        "url": "https://www.nationaleberoepengids.nl/salaris/backend-developer"
+      }
+    },
+    {
+      "id": "software-tester",
+      "titel": "Software-tester",
+      "wat": "Zoekt fouten voordat gebruikers ze vinden.",
+      "aiDoet": "Bedenkt automatisch testgevallen en voert ze uit.",
+      "jijDoet": "Bedenkt hoe echte mensen iets verkeerd gebruiken. Hoe meer code AI schrijft, hoe meer er gecontroleerd moet worden.",
+      "pastBij": "Jij ziet altijd als eerste dat er iets niet klopt.",
+      "vakken": [
+        "Testen",
+        "Programmeren"
+      ],
+      "onderwerpen": {
+        "programmeren": 0.7,
+        "websites-bouwen": 0.5,
+        "beveiliging": 0.4,
+        "games": 0.4
+      },
+      "startsalaris": {
+        "van": 3000,
+        "tot": 3300,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": null,
+        "url": "https://www.nationaleberoepengids.nl/salaris/software-tester"
+      }
+    },
+    {
+      "id": "security-specialist",
+      "titel": "Security-specialist",
+      "wat": "Beschermt systemen en gegevens tegen hackers.",
+      "aiDoet": "Herkent verdachte patronen sneller dan een mens.",
+      "jijDoet": "Beslist wat er gebeurt bij een aanval. Hackers gebruiken zelf ook AI, dus er blijven mensen nodig die terugvechten.",
+      "pastBij": "Je denkt graag na over hoe iets mis kan gaan.",
+      "vakken": [
+        "Security",
+        "Netwerken"
+      ],
+      "onderwerpen": {
+        "beveiliging": 1,
+        "netwerken": 0.6
+      },
+      "startsalaris": {
+        "van": 3800,
+        "tot": 4440,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids (cyber security specialist)",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": null,
+        "url": "https://www.nationaleberoepengids.nl/salaris/cyber-security-specialist"
+      }
+    },
+    {
+      "id": "ethisch-hacker",
+      "titel": "Ethisch hacker",
+      "wat": "Breekt met toestemming in bij bedrijven om lekken te vinden voordat criminelen dat doen.",
+      "aiDoet": "Scant automatisch op bekende lekken.",
+      "jijDoet": "Bedenkt nieuwe aanvalsroutes die nog niemand kent en legt de klant uit wat er moet gebeuren.",
+      "pastBij": "Je bent nieuwsgierig en zoekt altijd de achterdeur.",
+      "vakken": [
+        "Security",
+        "Programmeren"
+      ],
+      "onderwerpen": {
+        "beveiliging": 1,
+        "programmeren": 0.5
+      },
+      "startsalaris": {
+        "van": 3600,
+        "tot": 4480,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": null,
+        "url": "https://www.nationaleberoepengids.nl/salaris/ethical-hacker"
+      }
+    },
+    {
+      "id": "data-analist",
+      "titel": "Data-analist",
+      "wat": "Haalt antwoorden uit grote hoeveelheden gegevens.",
+      "aiDoet": "Rekent, zoekt patronen en maakt grafieken.",
+      "jijDoet": "Stelt de goede vraag, checkt of de cijfers kloppen en legt uit wat ze betekenen.",
+      "pastBij": "Je houdt van puzzels met cijfers.",
+      "vakken": [
+        "Data",
+        "Statistiek"
+      ],
+      "onderwerpen": {
+        "data": 1,
+        "ai": 0.4,
+        "zorg": 0.3,
+        "ondernemen": 0.3
+      },
+      "startsalaris": {
+        "van": 3500,
+        "tot": 4000,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": "2025-03-19",
+        "url": "https://www.nationaleberoepengids.nl/salaris/startend-data-analist"
+      }
+    },
+    {
+      "id": "ai-specialist",
+      "titel": "AI-specialist",
+      "wat": "Bouwt, traint en test AI-systemen.",
+      "aiDoet": "Helpt bij het schrijven van code en het verwerken van data.",
+      "jijDoet": "Kiest de data, controleert op fouten en vooroordelen, en bepaalt wanneer AI goed genoeg is om te gebruiken.",
+      "pastBij": "Je wilt snappen hoe AI echt werkt, en waar het misgaat.",
+      "vakken": [
+        "AI",
+        "Data",
+        "Ethiek"
+      ],
+      "onderwerpen": {
+        "ai": 1,
+        "data": 0.7,
+        "programmeren": 0.5
+      },
+      "startsalaris": {
+        "van": 3900,
+        "tot": 4620,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids (machine learning engineer)",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": "2024-11-26",
+        "url": "https://www.nationaleberoepengids.nl/salaris/machine-learning-engineer"
+      }
+    },
+    {
+      "id": "embedded-engineer",
+      "titel": "Embedded software engineer",
+      "wat": "Programmeert de computers in machines: robots, verkeerslichten en medische apparaten.",
+      "aiDoet": "Helpt code schrijven en situaties simuleren.",
+      "jijDoet": "Test met echte apparaten en zorgt dat het veilig is. Een fout gebeurt hier in de echte wereld.",
+      "pastBij": "Je wilt dat je code iets laat bewegen.",
+      "vakken": [
+        "Embedded systemen",
+        "Programmeren"
+      ],
+      "onderwerpen": {
+        "slimme-techniek": 1,
+        "programmeren": 0.5,
+        "zorg": 0.3
+      },
+      "startsalaris": {
+        "van": 4000,
+        "tot": 4500,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": "2024-11-26",
+        "url": "https://www.nationaleberoepengids.nl/salaris/embedded-engineer"
+      }
+    },
+    {
+      "id": "netwerkbeheerder",
+      "titel": "Netwerk- en cloudbeheerder",
+      "wat": "Zorgt dat netwerken, servers en de cloud altijd werken.",
+      "aiDoet": "Bewaakt systemen en lost routinestoringen zelf op.",
+      "jijDoet": "Ontwerpt het netwerk, lost lastige storingen op en maakt keuzes over veiligheid en kosten.",
+      "pastBij": "Jij bent degene die thuis de wifi fikst.",
+      "vakken": [
+        "Netwerken",
+        "Cloud"
+      ],
+      "onderwerpen": {
+        "netwerken": 1,
+        "beveiliging": 0.5
+      },
+      "startsalaris": {
+        "van": 3100,
+        "tot": 3580,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids (netwerkbeheerder)",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": "2024-12-20",
+        "url": "https://www.nationaleberoepengids.nl/salaris/netwerkbeheerder"
+      }
+    },
+    {
+      "id": "game-developer",
+      "titel": "Game developer",
+      "wat": "Bouwt games: van spelregels en levels tot code.",
+      "aiDoet": "Maakt plaatjes, geluiden en stukken code.",
+      "jijDoet": "Maakt het spel leuk en eerlijk. Of iets leuk is, merk je alleen door het met spelers te testen.",
+      "pastBij": "Je speelt games en denkt: dit kan beter.",
+      "vakken": [
+        "Game design",
+        "Programmeren"
+      ],
+      "onderwerpen": {
+        "games": 1,
+        "programmeren": 0.6,
+        "ontwerpen": 0.5
+      },
+      "startsalaris": {
+        "van": 2800,
+        "tot": 3340,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": null,
+        "url": "https://www.nationaleberoepengids.nl/salaris/game-developer"
+      }
+    },
+    {
+      "id": "zorg-ict",
+      "titel": "ICT'er in de zorg",
+      "wat": "Zorgt dat technologie in ziekenhuizen en zorg veilig en goed werkt.",
+      "aiDoet": "Ondersteunt artsen, bijvoorbeeld bij het bekijken van scans.",
+      "jijDoet": "Laat techniek aansluiten op hoe artsen en verpleegkundigen werken, en bewaakt de privacy van patiënten.",
+      "pastBij": "Je wilt met techniek mensen helpen.",
+      "vakken": [
+        "Informatica",
+        "Privacy & security"
+      ],
+      "onderwerpen": {
+        "zorg": 1,
+        "data": 0.4,
+        "slimme-techniek": 0.3
+      },
+      "startsalaris": {
+        "van": 3500,
+        "tot": 3800,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids (functioneel beheerder)",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": null,
+        "url": "https://www.nationaleberoepengids.nl/salaris/functioneel-beheerder"
+      }
+    },
+    {
+      "id": "ict-support",
+      "titel": "ICT-supportmedewerker",
+      "wat": "Helpt mensen als hun computer, account of app het niet doet.",
+      "aiDoet": "Een chatbot beantwoordt de simpele vragen.",
+      "jijDoet": "Lost de lastige problemen op en helpt mensen die vastlopen. Uitleggen en geruststellen doe je zelf.",
+      "pastBij": "Je helpt graag en blijft rustig als iets niet werkt.",
+      "vakken": [
+        "ICT-beheer",
+        "Communicatie"
+      ],
+      "onderwerpen": {
+        "netwerken": 0.6,
+        "websites-bouwen": 0.3,
+        "ai": 0.3
+      },
+      "startsalaris": {
+        "van": 2400,
+        "tot": 2640,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids (servicedesk-medewerker)",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": "2024-11-26",
+        "url": "https://www.nationaleberoepengids.nl/salaris/servicedesk-medewerker"
+      }
+    },
+    {
+      "id": "product-owner",
+      "titel": "Product owner",
+      "wat": "Bepaalt wat een ICT-team bouwt en in welke volgorde, samen met klanten en gebruikers.",
+      "aiDoet": "Vat feedback samen en schrijft eerste versies van plannen.",
+      "jijDoet": "Praat met klanten, maakt keuzes en houdt het team op koers. Draagvlak krijg je niet van een chatbot.",
+      "pastBij": "Je hebt veel ideeën en vindt het leuk om knopen door te hakken.",
+      "vakken": [
+        "Projectmanagement",
+        "Ondernemen"
+      ],
+      "onderwerpen": {
+        "ondernemen": 1,
+        "ontwerpen": 0.5,
+        "websites-bouwen": 0.4,
+        "ai": 0.3
+      },
+      "startsalaris": {
+        "van": 3800,
+        "tot": 4440,
+        "niveau": "0–2 jaar ervaring",
+        "bron": "Nationale Beroepengids (product owner, vaak geen eerste baan)",
+        "jaar": null,
+        "geraadpleegd": "nov. 2026",
+        "bijgewerkt": null,
+        "url": "https://www.nationaleberoepengids.nl/salaris/product-owner-scrum"
+      }
+    },
+    {
+      "id": "ict-ondernemer",
+      "titel": "ICT-ondernemer",
+      "wat": "Begint een eigen bedrijf met een app, website of ICT-dienst.",
+      "aiDoet": "Helpt met plannen, teksten, logo's en eerste versies van je product.",
+      "jijDoet": "Ziet kansen, praat met klanten, neemt risico en beslist. AI begint geen bedrijf voor je.",
+      "pastBij": "Je wilt je eigen baas zijn en iets bouwen dat mensen echt gebruiken.",
+      "vakken": [
+        "Ondernemen",
+        "Webdevelopment"
+      ],
+      "onderwerpen": {
+        "ondernemen": 1,
+        "websites-bouwen": 0.5,
+        "ai": 0.4,
+        "ontwerpen": 0.3
+      },
+      "startsalaris": {
+        "van": null,
+        "tot": null,
+        "niveau": null,
+        "bron": null,
+        "jaar": null,
+        "opmerking": "Geen vast salaris: wat je verdient, hangt af van je eigen bedrijf."
+      }
+    }
+  ],
+  "onderwerpen": {
+    "websites-bouwen": "Websites en apps bouwen",
+    "ontwerpen": "Ontwerpen",
+    "programmeren": "Programmeren",
+    "beveiliging": "Beveiliging en hacken",
+    "data": "Data en voorspellen",
+    "ai": "Werken met AI",
+    "slimme-techniek": "Robots en slimme apparaten",
+    "netwerken": "Netwerken en verbindingen",
+    "games": "Games maken",
+    "zorg": "Techniek in de zorg",
+    "ondernemen": "Ondernemen en nieuwe ideeën"
+  }
+}

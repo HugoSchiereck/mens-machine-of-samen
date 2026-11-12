@@ -1,0 +1,54 @@
+/* Gedeelde stijlen voor de mockups (binnen het 360x480-podium). */
+.mk-browser {
+  position: absolute;
+  inset: 0;
+  font-family: 'Avenir Next', Avenir, 'Nunito Sans Variable', sans-serif;
+  color: #151515;
+  overflow: hidden;
+}
+.mk-chrome {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 360px;
+  height: 30px;
+  background: #dcd6cc;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+}
+.mk-dots {
+  display: flex;
+  gap: 4px;
+}
+.mk-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b9b1a4;
+}
+.mk-url {
+  flex: 1;
+  height: 20px;
+  background: #fff;
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  padding: 0 9px;
+  font-size: 10px;
+  color: #444;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.mk-onveilig {
+  color: #b3261e;
+  font-weight: 700;
+  margin-right: 6px;
+  padding-right: 6px;
+  border-right: 1px solid #ddd;
+}
+.mk-url-tekst {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

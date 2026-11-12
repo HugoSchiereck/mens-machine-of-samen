@@ -1,0 +1,646 @@
+/* =====================================================================
+   Ontwerpsysteem: Mens, Machine of Samen? in de huisstijl van Hogeschool Utrecht.
+   Kleuren en hoekafrondingen komen uit de CSS van hu.nl.
+   Eén bron voor kleur, type, ruimte, vorm en beweging; alle schermen gebruiken deze tokens.
+   ===================================================================== */
+
+/* HU gebruikt Avenir. Die zit op iPhones en Macs ingebouwd; elders valt het terug op Nunito Sans. */
+@import '@fontsource-variable/nunito-sans/index.css';
+@import '@fontsource-variable/geist-mono/index.css';
+
+:root {
+  /* HU-palet */
+  --hu-blauw: #00a1e1;
+  --hu-blauw-hover: #0088c8;
+  --hu-blauw-donker: #006eae;
+  --hu-navy: #00004d;
+  --hu-rood: #e6302b;
+  --hu-rood-donker: #cd1712;
+  --hu-oranje: #e9650d;
+  --hu-babyblauw: #d9f1fb;
+  --hu-babyblauw-licht: #ecf8fd;
+
+  /* neutraal (HU-grijzen) */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f6f6f6;
+  --surface-3: #e8e8e8;
+  --border: #e6e6e6;
+  --border-strong: #cccccc;
+  --text: #1a1a1a;
+  --text-2: #4f4f4f;
+  --text-3: #757575; /* HU grey2, AA op wit */
+  --ink: var(--hu-blauw-donker); /* hoofdactie: HU-donkerblauw, wit erop haalt AA */
+  --ink-hover: var(--hu-navy);
+  --on-ink: #ffffff;
+
+  /* betekenis: mens = HU-blauw, machine = HU-navy, samen = HU-oranje */
+  --mens: var(--hu-blauw);
+  --mens-bg: var(--hu-babyblauw-licht);
+  --mens-text: var(--hu-blauw-donker);
+  --machine: var(--hu-navy);
+  --machine-bg: #ebebf3;
+  --machine-text: var(--hu-navy);
+  --samen: var(--hu-oranje);
+  --samen-bg: #fdefe6;
+  --samen-text: #b04c09;
+  --fout: var(--hu-rood);
+  --fout-bg: #fdecea;
+
+  /* type */
+  --font: 'Avenir Next', Avenir, 'Nunito Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'Geist Mono Variable', ui-monospace, Menlo, monospace;
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fs-lg: 18px;
+  --fs-xl: 22px;
+  --fs-2xl: 28px;
+  --fs-3xl: 36px;
+  --fs-4xl: 48px;
+  --fs-5xl: 72px;
+
+  /* ruimte (4-puntsraster) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 32px;
+  --s-8: 40px;
+  --s-9: 56px;
+
+  /* vorm */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-xl: 16px;
+  --r-full: 999px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 77, 0.06);
+  --shadow-md: 0 1px 2px rgba(0, 0, 77, 0.05), 0 8px 20px -8px rgba(0, 0, 77, 0.16);
+  --shadow-lg: 0 2px 6px rgba(0, 0, 77, 0.05), 0 28px 56px -24px rgba(0, 0, 77, 0.3);
+
+  /* beweging */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --spring: cubic-bezier(0.34, 1.25, 0.5, 1);
+  --snel: 160ms;
+  --normaal: 280ms;
+
+  color-scheme: light;
+}
+
+/* ---------- reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--fs-md);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+input {
+  font: inherit;
+  color: inherit;
+}
+h1,
+h2,
+h3,
+p,
+figure {
+  margin: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+}
+:focus-visible {
+  outline: 2px solid var(--mens);
+  outline-offset: 2px;
+}
+
+/* ---------- typografie ---------- */
+.t-display {
+  font-size: var(--fs-4xl);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+.t-h1 {
+  font-size: var(--fs-3xl);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.t-h2 {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.t-h3 {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.t-lead {
+  font-size: var(--fs-lg);
+  line-height: 1.45;
+  color: var(--text);
+  text-wrap: pretty;
+}
+.t-body {
+  font-size: var(--fs-md);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.t-small {
+  font-size: var(--fs-sm);
+  line-height: 1.45;
+  color: var(--text-2);
+}
+.t-eyebrow {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-2);
+  line-height: 1.3;
+}
+.t-num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+.t-mono {
+  font-family: var(--mono);
+}
+.t-mens {
+  color: var(--mens-text);
+}
+.t-machine {
+  color: var(--machine-text);
+}
+.t-samen {
+  color: var(--samen-text);
+}
+
+/* ---------- kleurscopes ----------
+   Zet .is-mens / .is-machine / .is-samen / .is-ai op een element;
+   onderdelen daarbinnen gebruiken var(--kleur) en var(--kleur-bg). */
+.is-mens {
+  --kleur: var(--mens);
+  --kleur-bg: var(--mens-bg);
+  --kleur-tekst: var(--mens-text);
+}
+.is-machine,
+.is-ai {
+  --kleur: var(--machine);
+  --kleur-bg: var(--machine-bg);
+  --kleur-tekst: var(--machine-text);
+}
+.is-samen {
+  --kleur: var(--samen);
+  --kleur-bg: var(--samen-bg);
+  --kleur-tekst: var(--samen-text);
+}
+
+/* ---------- merk: HU-logo + naam van het spel ---------- */
+.merk {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.merk-scheiding {
+  width: 1px;
+  height: 18px;
+  background: var(--border-strong);
+}
+.merk-blok {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+}
+.hu-logo {
+  display: block;
+  height: auto;
+}
+.merk-groot {
+  font-size: clamp(44px, 13.5vw, 60px);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+}
+/* ---------- knoppen ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  height: 52px;
+  padding: 0 var(--s-5);
+  border-radius: var(--r-md);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: transform var(--snel) var(--ease), background var(--snel), box-shadow var(--snel);
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+.btn-primary:hover {
+  background: var(--ink-hover);
+}
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+}
+.btn-secondary:hover {
+  background: var(--surface-2);
+}
+.btn-ghost {
+  color: var(--text-2);
+}
+.btn-ghost:hover {
+  color: var(--text);
+}
+.btn-block {
+  width: 100%;
+}
+.btn-sm {
+  height: 40px;
+  padding: 0 var(--s-4);
+  font-size: var(--fs-sm);
+  border-radius: var(--r-sm);
+}
+.btn-icon {
+  width: 52px;
+  padding: 0;
+}
+
+/* ---------- tags ---------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: var(--r-full);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  background: var(--surface-2);
+  color: var(--text-2);
+}
+.tag-lg {
+  height: 32px;
+  padding: 0 12px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+.tag-mens {
+  background: var(--mens-bg);
+  color: var(--mens-text);
+}
+.tag-machine {
+  background: var(--machine-bg);
+  color: var(--machine-text);
+}
+.tag-samen {
+  background: var(--samen-bg);
+  color: var(--samen-text);
+}
+.tag-fout {
+  background: var(--fout-bg);
+  color: var(--fout);
+}
+.tag-ink {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+/* ---------- kaarten en secties ---------- */
+.card {
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+.card-pad {
+  padding: var(--s-4);
+}
+.sectie {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.sectie-kop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+/* ---------- voortgang ---------- */
+.balk {
+  height: 8px;
+  border-radius: var(--r-full);
+  background: var(--surface-3);
+  overflow: hidden;
+}
+.balk > i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--ink);
+  transform-origin: left;
+  animation: groei 700ms var(--ease) both;
+}
+.balk-mens > i {
+  background: var(--mens);
+}
+.balk-machine > i {
+  background: var(--machine);
+}
+.balk-samen > i {
+  background: var(--samen);
+}
+@keyframes groei {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* ---------- gesegmenteerde keuze ---------- */
+.seg {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+.seg button {
+  height: 40px;
+  border-radius: 9px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-2);
+  text-transform: capitalize;
+}
+.seg button[aria-selected='true'] {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-sm), inset 0 0 0 1px var(--border);
+}
+
+/* ---------- podium (kaartmedia) ---------- */
+.podium {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--surface-2);
+  user-select: none;
+  -webkit-user-select: none;
+}
+.podium-inhoud {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 360px;
+  height: 480px;
+  transform-origin: 0 0;
+  pointer-events: none;
+  /* mockups houden hun eigen stijl, los van het systeem */
+  color: #151515;
+  font-family: var(--font);
+  font-size: 12px;
+  line-height: 1.3;
+  text-align: left;
+}
+.podium-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.podium-leeg {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+}
+
+/* vlakken: groen = AI, blauw = mens */
+.vlak {
+  position: absolute;
+  border-radius: 6px;
+  border: 2px solid;
+  animation: verschijn var(--normaal) var(--ease) both;
+  transition: background var(--snel), box-shadow var(--snel);
+}
+.vlak-ai {
+  border-color: var(--machine);
+  background: rgba(0, 0, 77, 0.12);
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.vlak-mens {
+  border-color: var(--mens);
+  background: rgba(0, 161, 225, 0.14);
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85);
+}
+.vlak-ai.is-actief {
+  background: rgba(0, 0, 77, 0.24);
+  box-shadow: 0 0 0 1.5px #fff, 0 0 0 5px rgba(0, 0, 77, 0.25);
+}
+.vlak-mens.is-actief {
+  background: rgba(0, 161, 225, 0.28);
+  box-shadow: 0 0 0 1.5px #fff, 0 0 0 5px rgba(0, 161, 225, 0.3);
+}
+.vlak-nr {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 0 0 2px #fff;
+}
+.vlak-ai .vlak-nr {
+  background: var(--machine);
+}
+.vlak-mens .vlak-nr {
+  background: var(--mens);
+}
+
+/* fouten: gevonden = zwart, gemist = gestippeld */
+.foutring {
+  position: absolute;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ring-in var(--normaal) var(--spring) both;
+}
+.foutring b {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  box-shadow: 0 0 0 2px #fff;
+}
+.foutring.is-gevonden {
+  border: 3px solid var(--ink);
+  background: rgba(0, 110, 174, 0.1);
+  box-shadow: 0 0 0 2px #fff;
+}
+.foutring.is-gevonden b {
+  background: var(--ink);
+  color: #fff;
+}
+.foutring.is-gemist {
+  border: 3px dashed var(--fout);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+}
+.foutring.is-gemist b {
+  background: var(--fout);
+  color: #fff;
+}
+@keyframes ring-in {
+  from {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+.misser {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  translate: -50% -50%;
+  pointer-events: none;
+  color: var(--fout);
+  animation: misser 600ms ease-out both;
+}
+@keyframes misser {
+  to {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+
+/* ---------- onderblad (sheet) ---------- */
+.sheet-achter {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 77, 0.32);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: fade var(--normaal) var(--ease) both;
+}
+.sheet {
+  width: 100%;
+  max-width: 520px;
+  max-height: 88dvh;
+  overflow-y: auto;
+  background: var(--surface);
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  padding: var(--s-3) var(--s-5) calc(var(--s-6) + env(safe-area-inset-bottom));
+  box-shadow: var(--shadow-lg);
+  animation: omhoog var(--normaal) var(--ease) both;
+}
+.sheet-greep {
+  width: 36px;
+  height: 4px;
+  border-radius: var(--r-full);
+  background: var(--surface-3);
+  margin: 0 auto var(--s-4);
+}
+
+/* ---------- beweging ---------- */
+@keyframes verschijn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+@keyframes omhoog {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

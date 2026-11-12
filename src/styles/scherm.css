@@ -1,0 +1,564 @@
+/* =====================================================================
+   Groot scherm en teampagina's. Zelfde tokens als de telefoon (systeem.css).
+   Op het grote scherm schaalt alles mee met --u, zodat het op elk 16:9-scherm past.
+   ===================================================================== */
+
+.gs {
+  --u: min(1vw, 1.78vh);
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: calc(var(--u) * 1.6);
+  padding: calc(var(--u) * 2) calc(var(--u) * 2.4);
+  background: var(--surface-2);
+  font-size: calc(var(--u) * 1.15);
+}
+.gs-kop {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 1.4);
+}
+.gs-kop .merk {
+  font-size: calc(var(--u) * 1.4);
+}
+.gs-kop .hu-logo {
+  height: calc(var(--u) * 2.6);
+}
+.gs-kop .merk-scheiding {
+  height: calc(var(--u) * 1.8);
+  margin: 0 calc(var(--u) * 0.4);
+}
+.gs-status {
+  height: calc(var(--u) * 1.8);
+  font-size: calc(var(--u) * 0.85);
+}
+.gs-kop-rechts {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--u) * 2.4);
+  font-size: calc(var(--u) * 1.2);
+  color: var(--text-2);
+}
+.gs-kop-rechts b {
+  font-size: calc(var(--u) * 1.8);
+  font-weight: 800;
+  color: var(--text);
+}
+.gs-kop-rechts > span:last-child {
+  font-size: calc(var(--u) * 1.8);
+  font-weight: 800;
+  color: var(--text);
+}
+
+.gs-label {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--u) * 0.5);
+  font-size: calc(var(--u) * 0.95);
+  font-weight: 500;
+  color: var(--text-2);
+}
+.gs-leeg {
+  color: var(--text-3);
+}
+
+.gs-grid {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 22fr 52fr 26fr;
+  gap: calc(var(--u) * 1.6);
+}
+.gs-paneel {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--u) * 1.2);
+  padding: calc(var(--u) * 2);
+  border-radius: calc(var(--u) * 1.4);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm), inset 0 0 0 1px var(--border);
+}
+
+/* speel mee */
+.gs-titel {
+  font-size: calc(var(--u) * 2.8);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+.gs-qr {
+  width: 100%;
+  max-width: calc(var(--u) * 15);
+  aspect-ratio: 1;
+}
+.gs-qr svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.gs-url {
+  font-size: calc(var(--u) * 0.95);
+  color: var(--text-2);
+  word-break: break-all;
+}
+.gs-stappen {
+  margin-top: auto;
+  display: grid;
+  gap: calc(var(--u) * 0.7);
+  counter-reset: stap;
+}
+.gs-stappen li {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 0.8);
+  font-weight: 500;
+  counter-increment: stap;
+}
+.gs-stappen li::before {
+  content: counter(stap);
+  width: calc(var(--u) * 1.7);
+  height: calc(var(--u) * 1.7);
+  flex: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--u) * 0.9);
+  font-weight: 600;
+  background: var(--surface-2);
+}
+
+/* midden */
+.gs-paneel-kop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: calc(var(--u) * 2.2);
+}
+.gs-livepunt {
+  width: calc(var(--u) * 0.6);
+  height: calc(var(--u) * 0.6);
+  border-radius: 50%;
+  background: var(--fout);
+  animation: knipper 1.6s ease-in-out infinite;
+}
+@keyframes knipper {
+  50% {
+    opacity: 0.3;
+  }
+}
+.gs-flits {
+  height: calc(var(--u) * 2.2);
+  padding: 0 calc(var(--u) * 1);
+  font-size: calc(var(--u) * 1.05);
+  animation: omhoog var(--normaal) var(--ease) both;
+}
+.gs-live {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: calc(var(--u) * 2.8);
+  animation: fade 500ms var(--ease) both;
+}
+.gs-kaart {
+  align-self: center;
+  width: calc(var(--u) * 15);
+  padding: calc(var(--u) * 0.4);
+  border-radius: calc(var(--u) * 1.2);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg), inset 0 0 0 1px var(--border);
+}
+.gs-kaart .podium {
+  border-radius: calc(var(--u) * 0.9);
+}
+.gs-kaart figcaption {
+  padding: calc(var(--u) * 0.8) calc(var(--u) * 0.5) calc(var(--u) * 0.4);
+  font-size: calc(var(--u) * 1.2);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+.gs-zuilen {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(var(--u) * 1.6);
+  min-height: 0;
+}
+.gs-zuil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--u) * 0.8);
+  min-height: 0;
+}
+.gs-zuil-pct {
+  font-size: calc(var(--u) * 3.2);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+.gs-zuil-buis {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  border-radius: calc(var(--u) * 0.8);
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.gs-zuil-buis i {
+  position: absolute;
+  inset: auto 0 0 0;
+  border-radius: calc(var(--u) * 0.8);
+  background: var(--kleur);
+  transition: height 900ms var(--spring);
+}
+.gs-zuil.is-flits .gs-zuil-buis {
+  box-shadow: 0 0 0 3px var(--kleur);
+}
+.gs-zuil-naam {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--u) * 0.5);
+  font-size: calc(var(--u) * 1.3);
+  font-weight: 600;
+  color: var(--kleur-tekst);
+  white-space: nowrap;
+}
+.gs-voetregel {
+  font-size: calc(var(--u) * 0.95);
+  color: var(--text-3);
+  text-align: center;
+}
+
+.gs-spotlight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: calc(var(--u) * 1.4);
+  padding: 0 calc(var(--u) * 2);
+  animation: omhoog 500ms var(--ease) both;
+}
+.gs-spot-titel {
+  font-size: calc(var(--u) * 4);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+.gs-spot-wat {
+  font-size: calc(var(--u) * 1.6);
+  line-height: 1.35;
+  color: var(--text-2);
+  max-width: 36ch;
+}
+.gs-spot-rijen {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--u) * 1);
+}
+.gs-spot-rijen > div {
+  padding: calc(var(--u) * 1.2) calc(var(--u) * 1.4);
+  border-radius: calc(var(--u) * 1);
+  background: var(--kleur-bg);
+}
+.gs-spot-rijen .gs-label {
+  color: var(--kleur-tekst);
+}
+.gs-spot-rijen p {
+  margin-top: calc(var(--u) * 0.4);
+  font-size: calc(var(--u) * 1.2);
+  line-height: 1.4;
+}
+
+/* ranglijst */
+.gs-rang ol {
+  display: grid;
+  gap: calc(var(--u) * 0.2);
+}
+.gs-rang li {
+  display: grid;
+  grid-template-columns: calc(var(--u) * 2) 1fr auto;
+  align-items: center;
+  gap: calc(var(--u) * 0.8);
+  padding: calc(var(--u) * 0.75) 0;
+  border-bottom: 1px solid var(--border);
+}
+.gs-rang li.is-eerste {
+  padding: calc(var(--u) * 1) calc(var(--u) * 1);
+  margin-bottom: calc(var(--u) * 0.3);
+  border-radius: calc(var(--u) * 0.8);
+  border: 0;
+  background: var(--hu-navy);
+  color: var(--on-ink);
+}
+.gs-rang-nr {
+  font-weight: 600;
+  color: var(--text-3);
+}
+.is-eerste .gs-rang-nr {
+  color: rgba(255, 255, 255, 0.6);
+}
+.gs-rang-naam {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 0.5);
+  font-weight: 500;
+  font-size: calc(var(--u) * 1.25);
+  min-width: 0;
+}
+.gs-rang-naam > span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.gs-rang-naam .tag {
+  height: calc(var(--u) * 1.4);
+  font-size: calc(var(--u) * 0.75);
+}
+.gs-rang-score {
+  font-size: calc(var(--u) * 1.4);
+  font-weight: 800;
+}
+.gs-duel {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--u) * 0.6);
+}
+.gs-duel-namen {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 500;
+}
+.gs-duel-namen b {
+  font-size: calc(var(--u) * 1.7);
+  font-weight: 800;
+}
+.gs-duel-balk {
+  height: calc(var(--u) * 0.8);
+  border-radius: var(--r-full);
+  background: var(--samen);
+  overflow: hidden;
+}
+.gs-duel-balk i {
+  display: block;
+  height: 100%;
+  background: var(--mens);
+  transition: width 900ms var(--ease);
+}
+
+/* voet */
+.gs-voet {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: calc(var(--u) * 1.6);
+}
+.gs-tegel {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--u) * 0.7);
+  padding: calc(var(--u) * 1.4) calc(var(--u) * 1.8);
+  border-radius: calc(var(--u) * 1.2);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm), inset 0 0 0 1px var(--border);
+}
+.gs-angst {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 1);
+}
+.gs-groot {
+  font-size: calc(var(--u) * 3.2);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+.gs-groot.is-zacht {
+  color: var(--text-3);
+}
+.gs-middel {
+  font-size: calc(var(--u) * 2);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+.gs-pijl {
+  font-size: calc(var(--u) * 1.8);
+  color: var(--text-3);
+}
+.gs-klein {
+  font-size: calc(var(--u) * 1);
+  line-height: 1.35;
+  color: var(--text-2);
+}
+.gs-klein b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ============ Teampagina's (stats, kaartenoverzicht) ============ */
+.ts {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--s-8) var(--s-6) var(--s-9);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-8);
+}
+.ts-kop {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+}
+.ts-links {
+  display: flex;
+  gap: var(--s-2);
+}
+.ts-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--s-3);
+}
+.ts-kpi {
+  padding: var(--s-4) var(--s-5);
+  border-radius: var(--r-lg);
+  box-shadow: inset 0 0 0 1px var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+.ts-kpi b {
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+.ts-gesprek {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+  flex-wrap: wrap;
+  padding: var(--s-5);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+}
+.ts-uren {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--s-1);
+  height: 48px;
+  margin-left: auto;
+}
+.ts-uren span {
+  position: relative;
+  width: 18px;
+  border-radius: 4px 4px 0 0;
+  background: var(--ink);
+}
+.ts-uren span::after {
+  content: attr(data-uur);
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 10px;
+  color: var(--text-3);
+}
+.ts-tabel-wrap {
+  overflow-x: auto;
+  border-radius: var(--r-lg);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+.ts-tabel {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+.ts-tabel th,
+.ts-tabel td {
+  text-align: left;
+  padding: var(--s-3) var(--s-4);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.ts-tabel tr:last-child td {
+  border-bottom: 0;
+}
+.ts-tabel th {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--text-2);
+  background: var(--surface-2);
+}
+.ts-tabel .ts-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.ts-verdeling {
+  display: flex;
+  width: 140px;
+  height: 8px;
+  border-radius: var(--r-full);
+  overflow: hidden;
+  background: var(--surface-3);
+}
+.ts-verdeling i:nth-child(1) {
+  background: var(--mens);
+}
+.ts-verdeling i:nth-child(2) {
+  background: var(--machine);
+}
+.ts-verdeling i:nth-child(3) {
+  background: var(--samen);
+}
+
+.ko-kaart {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) 2fr;
+  gap: var(--s-6);
+  padding-bottom: var(--s-8);
+  border-bottom: 1px solid var(--border);
+}
+.ko-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  align-items: flex-start;
+}
+.ko-info ol {
+  padding-left: 1.2em;
+  list-style: decimal;
+  font-size: var(--fs-sm);
+  display: grid;
+  gap: var(--s-1);
+}
+.ko-beelden {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-4);
+  align-items: start;
+}
+.ko-fig .podium {
+  border-radius: var(--r-md);
+  overflow: visible;
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+.ko-fig .podium-inhoud {
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.ko-fig figcaption {
+  margin-top: var(--s-2);
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+@media (max-width: 760px) {
+  .ko-kaart {
+    grid-template-columns: 1fr;
+  }
+}
