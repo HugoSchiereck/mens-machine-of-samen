@@ -53,6 +53,28 @@
   mask-image: linear-gradient(90deg, transparent, black 15%, black 70%, transparent);
   pointer-events: none;
 }
+.uit-raster::before,
+.uit-raster::after {
+  position: absolute;
+  inset: -20%;
+  content: '';
+  pointer-events: none;
+}
+.uit-raster::before {
+  background:
+    radial-gradient(circle at 18% 30%, rgba(0, 199, 255, 0.75) 0 0.14rem, transparent 0.2rem),
+    radial-gradient(circle at 72% 22%, rgba(233, 101, 13, 0.7) 0 0.1rem, transparent 0.18rem),
+    radial-gradient(circle at 84% 76%, rgba(255, 255, 255, 0.6) 0 0.08rem, transparent 0.16rem),
+    radial-gradient(circle at 34% 82%, rgba(0, 161, 225, 0.55) 0 0.1rem, transparent 0.18rem);
+  animation: uit-sterreling 11s ease-in-out infinite alternate;
+  opacity: 0.55;
+}
+.uit-raster::after {
+  background: linear-gradient(112deg, transparent 20%, rgba(255, 255, 255, 0.03) 42%, rgba(0, 199, 255, 0.16) 49%, rgba(255, 255, 255, 0.04) 53%, transparent 76%);
+  transform: translateX(-55%) skewX(-14deg);
+  animation: uit-lichtveeg 8s cubic-bezier(.4, 0, .2, 1) infinite;
+  opacity: 0.7;
+}
 .uit-orbit {
   position: absolute;
   z-index: -1;
@@ -138,6 +160,7 @@
   color: rgba(255, 255, 255, 0.8);
   font-size: calc(var(--u) * 0.95);
   background: rgba(255, 255, 255, 0.05);
+  animation: uit-live-gloed 3.8s ease-in-out infinite;
 }
 .uit-inhoud {
   position: relative;
@@ -177,6 +200,7 @@
 .uit h1 span {
   color: var(--samen);
   text-shadow: 0 0 calc(var(--u) * 2) rgba(233, 101, 13, 0.25);
+  animation: uit-accent-puls 4.2s ease-in-out infinite;
 }
 .uit-intro {
   max-width: 31ch;
@@ -206,7 +230,10 @@
   border-radius: 50%;
   background: var(--hu-blauw);
   color: var(--hu-navy);
+  animation: uit-stap-puls 3.2s ease-in-out infinite;
 }
+.uit-stappen span:nth-child(2) b { animation-delay: -1.05s; }
+.uit-stappen span:nth-child(3) b { animation-delay: -2.1s; }
 .uit-codekaart {
   position: relative;
   width: min(calc(var(--u) * 29), 42vw);
@@ -230,6 +257,11 @@
   z-index: -1;
   border: 1px solid rgba(0, 161, 225, 0.6);
   border-radius: calc(var(--u) * 2.4);
+  background: linear-gradient(120deg, rgba(0, 199, 255, 0.8), transparent 35% 65%, rgba(233, 101, 13, 0.7));
+  background-clip: border-box;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  padding: 1px;
   content: '';
   transform: rotate(-4deg);
   animation: uit-kaart-rand 4.5s ease-in-out infinite;
@@ -284,6 +316,7 @@
   font-size: calc(var(--u) * 1.5);
   font-weight: 800;
   letter-spacing: -0.02em;
+  animation: uit-cta-gloed 2.8s ease-in-out infinite;
 }
 .uit-scan::after {
   display: block;
@@ -360,6 +393,31 @@
 @keyframes uit-adem {
   to { background-color: #05053b; }
 }
+@keyframes uit-lichtveeg {
+  0% { transform: translateX(-62%) skewX(-14deg); opacity: 0; }
+  18%, 72% { opacity: 0.8; }
+  100% { transform: translateX(62%) skewX(-14deg); opacity: 0; }
+}
+@keyframes uit-sterreling {
+  0%, 100% { transform: translate(-1%, 1%) scale(0.98); opacity: 0.35; }
+  50% { transform: translate(2%, -2%) scale(1.04); opacity: 0.8; }
+}
+@keyframes uit-live-gloed {
+  0%, 100% { border-color: rgba(255, 255, 255, 0.28); box-shadow: 0 0 0 rgba(0, 199, 255, 0); }
+  50% { border-color: rgba(0, 199, 255, 0.72); box-shadow: 0 0 calc(var(--u) * 1.4) rgba(0, 199, 255, 0.28); }
+}
+@keyframes uit-accent-puls {
+  0%, 100% { text-shadow: 0 0 calc(var(--u) * 1.2) rgba(233, 101, 13, 0.22); }
+  50% { text-shadow: 0 0 calc(var(--u) * 3.2) rgba(233, 101, 13, 0.62), 0 0 calc(var(--u) * 5) rgba(0, 199, 255, 0.2); }
+}
+@keyframes uit-stap-puls {
+  0%, 100% { transform: scale(0.94); box-shadow: 0 0 calc(var(--u) * 0.5) rgba(0, 161, 225, 0.25); }
+  50% { transform: scale(1.08); box-shadow: 0 0 calc(var(--u) * 1.4) rgba(0, 199, 255, 0.7); }
+}
+@keyframes uit-cta-gloed {
+  0%, 100% { color: var(--hu-navy); text-shadow: 0 0 0 rgba(233, 101, 13, 0); }
+  50% { color: #07115a; text-shadow: 0 0 calc(var(--u) * 1.2) rgba(233, 101, 13, 0.45); }
+}
 @keyframes uit-licht {
   to { background-position: 100% 20%; opacity: 0.9; }
 }
@@ -431,11 +489,15 @@
 @media (prefers-reduced-motion: reduce) {
   .uit,
   .uit::before,
+  .uit-raster::before,
+  .uit-raster::after,
   .uit h1,
+  .uit h1 span,
   .uit h1::after,
   .uit-codekaart,
   .uit-codekaart::before,
   .uit-codekaart::after,
+  .uit-live,
   .uit-kop,
   .uit-tekst,
   .uit-voet,
@@ -446,6 +508,8 @@
   .uit-orbit-twee::before,
   .uit-orbit-twee::after,
   .uit-scan::after,
+  .uit-scan,
+  .uit-stappen b,
   .uit-vorm-links,
   .uit-vorm-rechts,
   .uit-vormen i,
