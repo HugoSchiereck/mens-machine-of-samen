@@ -76,7 +76,8 @@ export default function Uitnodiging() {
 
       <section className="uit-inhoud">
         <div className="uit-tekst">
-          <h1>AI of <span>mens</span></h1>
+          <p className="uit-context">AI of mens</p>
+          <h1>Kom erachter welke <span>ICT-baan</span> bij jou past</h1>
           <p className="uit-belofte">Doe mee in 2 minuten</p>
           <p className="uit-intro">Scan de code en ontdek welke ICT-baan bij jou past.</p>
           <div className="uit-missie" aria-label="Missie-teaser">
