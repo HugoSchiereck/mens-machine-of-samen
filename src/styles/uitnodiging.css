@@ -1,14 +1,16 @@
 .uit {
   --u: min(1vw, 1.78vh);
+  --uit-line: rgba(255, 255, 255, 0.14);
+  --uit-soft: rgba(255, 255, 255, 0.68);
   min-height: 100vh;
   overflow: hidden;
   position: relative;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  padding: calc(var(--u) * 2.8) calc(var(--u) * 5);
+  padding: calc(var(--u) * 3.2) max(calc(var(--u) * 5), 2rem);
   color: var(--on-ink);
   isolation: isolate;
-  animation: uit-adem 10s ease-in-out infinite alternate;
+  animation: uit-adem 18s ease-in-out infinite alternate;
   background:
     radial-gradient(circle at 76% 45%, rgba(0, 161, 225, 0.28), transparent 25%),
     radial-gradient(circle at 22% 78%, rgba(233, 101, 13, 0.18), transparent 28%),
@@ -147,7 +149,7 @@
   font-size: calc(var(--u) * 1.35);
 }
 .uit-kop .hu-logo {
-  height: calc(var(--u) * 2.6);
+  height: calc(var(--u) * 2.8);
 }
 .uit-kop .merk-scheiding {
   background: rgba(255, 255, 255, 0.45);
@@ -159,8 +161,8 @@
   border-radius: var(--r-full);
   color: rgba(255, 255, 255, 0.8);
   font-size: calc(var(--u) * 0.95);
-  background: rgba(255, 255, 255, 0.05);
-  animation: uit-live-gloed 3.8s ease-in-out infinite;
+  background: rgba(255, 255, 255, 0.07);
+  animation: uit-live-gloed 6s ease-in-out infinite;
 }
 .uit-inhoud {
   position: relative;
@@ -170,28 +172,40 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: calc(var(--u) * 8);
+  gap: clamp(2.5rem, calc(var(--u) * 10), 8rem);
+  padding: calc(var(--u) * 3) 0;
 }
 .uit-tekst {
-  max-width: calc(var(--u) * 55);
+  max-width: calc(var(--u) * 58);
   animation: uit-binnen 0.9s 0.25s both cubic-bezier(.2,.8,.2,1);
 }
 .uit-context {
-  margin-bottom: calc(var(--u) * 1.1);
-  color: rgba(255, 255, 255, 0.72);
-  font-size: calc(var(--u) * 1.05);
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--u) * 0.7);
+  margin-bottom: calc(var(--u) * 1.5);
+  color: var(--uit-soft);
+  font-size: calc(var(--u) * 0.9);
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+.uit-context::before {
+  width: calc(var(--u) * 2.2);
+  height: 2px;
+  border-radius: var(--r-full);
+  background: var(--hu-blauw);
+  box-shadow: 0 0 calc(var(--u) * 0.8) rgba(0, 199, 255, 0.6);
+  content: '';
+}
 .uit h1 {
   position: relative;
   max-width: 12ch;
-  font-size: clamp(3.4rem, calc(var(--u) * 7.8), 10rem);
+  font-size: clamp(3.25rem, calc(var(--u) * 7.2), 9rem);
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 0.96;
-  animation: uit-titel 7s ease-in-out infinite;
+  animation: uit-titel 12s ease-in-out infinite;
 }
 .uit h1::after {
   position: absolute;
@@ -223,18 +237,23 @@
 }
 .uit-intro {
   max-width: 31ch;
-  margin-top: calc(var(--u) * 2);
-  color: rgba(255, 255, 255, 0.78);
-  font-size: calc(var(--u) * 1.65);
-  line-height: 1.35;
+  margin-top: calc(var(--u) * 1.6);
+  color: rgba(255, 255, 255, 0.76);
+  font-size: clamp(1.05rem, calc(var(--u) * 1.5), 1.55rem);
+  line-height: 1.45;
 }
 .uit-missie {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: calc(var(--u) * 0.65) calc(var(--u) * 0.9);
+  gap: calc(var(--u) * 0.8) calc(var(--u) * 1.1);
   max-width: 34ch;
-  margin-top: calc(var(--u) * 1.5);
+  margin-top: calc(var(--u) * 2.2);
+  padding: calc(var(--u) * 1) calc(var(--u) * 1.2);
+  border: 1px solid var(--uit-line);
+  border-radius: calc(var(--u) * 1.2);
+  background: rgba(0, 0, 77, 0.26);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.9);
 }
 .uit-missie-label {
@@ -275,8 +294,8 @@
 .uit-stappen {
   display: flex;
   flex-wrap: wrap;
-  gap: calc(var(--u) * 1.5);
-  margin-top: calc(var(--u) * 3);
+  gap: calc(var(--u) * 1.8);
+  margin-top: calc(var(--u) * 2.8);
   color: rgba(255, 255, 255, 0.9);
   font-size: calc(var(--u) * 1.05);
 }
@@ -299,15 +318,16 @@
 .uit-stappen span:nth-child(3) b { animation-delay: -2.1s; }
 .uit-codekaart {
   position: relative;
-  width: min(calc(var(--u) * 29), 42vw);
-  padding: calc(var(--u) * 2.2);
-  border-radius: calc(var(--u) * 2);
+  width: min(calc(var(--u) * 31), 42vw);
+  padding: calc(var(--u) * 2.5);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: calc(var(--u) * 1.8);
   background: var(--bg);
   color: var(--hu-navy);
   box-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 6) rgba(0, 0, 0, 0.22), 0 0 calc(var(--u) * 4) rgba(0, 161, 225, 0.2);
   text-align: center;
-  transform: rotate(2deg);
-  animation: uit-kaart 5s 0.55s ease-in-out infinite, uit-kaart-in 0.95s 0.35s both cubic-bezier(.2,.8,.2,1);
+  transform: rotate(1deg);
+  animation: uit-kaart 9s 0.55s ease-in-out infinite, uit-kaart-in 0.95s 0.35s both cubic-bezier(.2,.8,.2,1);
   transition: box-shadow 0.35s ease, filter 0.35s ease;
 }
 .uit-codekaart:hover {
@@ -319,7 +339,7 @@
   inset: calc(var(--u) * -0.55);
   z-index: -1;
   border: 1px solid rgba(0, 161, 225, 0.6);
-  border-radius: calc(var(--u) * 2.4);
+  border-radius: calc(var(--u) * 2.1);
   background: linear-gradient(120deg, rgba(0, 199, 255, 0.8), transparent 35% 65%, rgba(233, 101, 13, 0.7));
   background-clip: border-box;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -342,7 +362,7 @@
 }
 .uit-code-label {
   display: block;
-  margin-bottom: calc(var(--u) * 1.2);
+  margin-bottom: calc(var(--u) * 1.5);
   color: var(--samen-text);
   font-size: calc(var(--u) * 0.85);
   font-weight: 800;
@@ -351,9 +371,11 @@
 }
 .uit-qr-wrap {
   position: relative;
-  padding: calc(var(--u) * 1.2);
-  border-radius: calc(var(--u) * 1.1);
-  background: white;
+  padding: calc(var(--u) * 1.35);
+  border: 1px solid rgba(0, 0, 77, 0.12);
+  border-radius: calc(var(--u) * 0.9);
+  background: #fff;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 77, 0.12);
 }
 .uit-qr-wrap::before {
   position: absolute;
@@ -374,12 +396,12 @@
   height: 100%;
 }
 .uit-scan {
-  margin-top: calc(var(--u) * 1.3);
+  margin-top: calc(var(--u) * 1.5);
   color: var(--hu-navy);
   font-size: calc(var(--u) * 1.5);
   font-weight: 800;
   letter-spacing: -0.02em;
-  animation: uit-cta-gloed 2.8s ease-in-out infinite;
+  animation: uit-cta-gloed 5s ease-in-out infinite;
 }
 .uit-scan::after {
   display: block;
@@ -525,8 +547,8 @@
   100% { opacity: 0; transform: scale(1.08); }
 }
 @keyframes uit-kaart {
-  0%, 100% { transform: rotate(2deg); box-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 6) rgba(0, 0, 0, 0.22), 0 0 calc(var(--u) * 4) rgba(0, 161, 225, 0.2); }
-  50% { transform: rotate(2deg); box-shadow: 0 calc(var(--u) * 2.2) calc(var(--u) * 6.5) rgba(0, 0, 0, 0.25), 0 0 calc(var(--u) * 7) rgba(0, 190, 255, 0.5); }
+  0%, 100% { transform: rotate(1deg); box-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 6) rgba(0, 0, 0, 0.22), 0 0 calc(var(--u) * 4) rgba(0, 161, 225, 0.2); }
+  50% { transform: rotate(1deg) translateY(calc(var(--u) * -0.5)); box-shadow: 0 calc(var(--u) * 2.2) calc(var(--u) * 6.5) rgba(0, 0, 0, 0.25), 0 0 calc(var(--u) * 7) rgba(0, 190, 255, 0.5); }
 }
 @keyframes uit-kaart-rand {
   0%, 100% { opacity: 0.55; transform: rotate(-4deg) scale(1); }
@@ -586,7 +608,7 @@
 }
 @media (max-width: 720px) {
   .uit {
-    padding: calc(var(--u) * 2) calc(var(--u) * 2.4);
+    padding: calc(var(--u) * 2.4) calc(var(--u) * 2.4);
   }
   .uit-live,
   .uit-voet > span:first-child {
@@ -594,7 +616,8 @@
   }
   .uit-inhoud {
     grid-template-columns: 1fr;
-    gap: calc(var(--u) * 2);
+    gap: calc(var(--u) * 2.8);
+    padding: calc(var(--u) * 2) 0;
     justify-items: center;
     text-align: center;
   }
@@ -617,7 +640,8 @@
     justify-content: center;
   }
   .uit-codekaart {
-    width: min(70vw, 22rem);
+    width: min(76vw, 22rem);
+    padding: calc(var(--u) * 2);
   }
   .uit-orbit-een {
     top: 35%;
