@@ -46,7 +46,6 @@ export default function Uitnodiging() {
   const [missieIndex, setMissieIndex] = useState(0)
   const missies = [
     'Kun jij AI herkennen?',
-    'Welke ICT-baan past bij jou?',
     'Mens, machine of samen?',
     'Klaar om jouw talent te ontdekken?',
   ]
@@ -71,7 +70,7 @@ export default function Uitnodiging() {
       <div className="uit-orbit uit-orbit-twee" aria-hidden="true" />
       <header className="uit-kop">
         <Merk vol />
-        <span className="uit-live">Open dag · speel mee</span>
+        <span className="uit-live">Open dag</span>
       </header>
 
       <section className="uit-inhoud">
@@ -90,16 +89,16 @@ export default function Uitnodiging() {
           <div className="uit-stappen" aria-label="Zo doe je mee">
             <span><b>1</b> Pak je telefoon</span>
             <span><b>2</b> Scan de code</span>
-            <span><b>3</b> Speel mee</span>
+            <span><b>3</b> Ontdek jouw ICT-match</span>
           </div>
         </div>
 
         <div className="uit-codekaart">
-          <span className="uit-code-label">Jouw missie begint hier</span>
+          <span className="uit-code-label">Scan om te beginnen</span>
           <div className="uit-qr-wrap">
             <QR url={url} />
           </div>
-          <p className="uit-scan">Scan &amp; speel mee</p>
+          <p className="uit-scan">Scan mij</p>
           {url && <p className="uit-url">{url.replace(/^https?:\/\//, '')}</p>}
         </div>
       </section>
