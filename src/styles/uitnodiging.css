@@ -12,6 +12,7 @@
   background:
     radial-gradient(circle at 76% 45%, rgba(0, 161, 225, 0.2), transparent 25%),
     radial-gradient(circle at 22% 78%, rgba(233, 101, 13, 0.12), transparent 28%),
+    radial-gradient(circle at 52% 12%, rgba(255, 255, 255, 0.06), transparent 22%),
     var(--hu-navy);
 }
 .uit::before {
@@ -19,8 +20,8 @@
   inset: 0;
   z-index: -2;
   background: linear-gradient(118deg, transparent 0 42%, rgba(0, 161, 225, 0.07) 42.2% 42.5%, transparent 42.7% 100%);
-  background-size: 140% 140%;
-  animation: uit-licht 14s ease-in-out infinite alternate;
+  background-size: 180% 180%;
+  animation: uit-licht 14s ease-in-out infinite alternate, uit-gloed 18s ease-in-out infinite alternate;
   content: '';
   pointer-events: none;
 }
@@ -81,6 +82,31 @@
   top: 25%;
   transform: rotate(-24deg);
   opacity: 0.5;
+  animation: uit-draai-langzaam 32s linear infinite reverse;
+}
+.uit-orbit-twee::before,
+.uit-orbit-twee::after {
+  position: absolute;
+  width: calc(var(--u) * 0.8);
+  height: calc(var(--u) * 0.8);
+  border-radius: 50%;
+  background: var(--hu-blauw);
+  box-shadow: 0 0 calc(var(--u) * 1.1) var(--hu-blauw);
+  content: '';
+}
+.uit-orbit-twee::before {
+  top: 12%;
+  left: 21%;
+  animation: uit-deeltje 5.5s ease-in-out infinite alternate-reverse;
+}
+.uit-orbit-twee::after {
+  right: 14%;
+  bottom: 17%;
+  width: calc(var(--u) * 0.55);
+  height: calc(var(--u) * 0.55);
+  background: var(--samen);
+  box-shadow: 0 0 calc(var(--u) * 0.9) var(--samen);
+  animation: uit-deeltje 4s -2s ease-in-out infinite alternate;
 }
 .uit-kop,
 .uit-voet {
@@ -123,35 +149,26 @@
   max-width: calc(var(--u) * 55);
   animation: uit-binnen 0.9s 0.25s both cubic-bezier(.2,.8,.2,1);
 }
-.uit-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: calc(var(--u) * 0.6);
-  margin-bottom: calc(var(--u) * 1.6);
-  padding: calc(var(--u) * 0.55) calc(var(--u) * 1);
-  border: 1px solid rgba(0, 161, 225, 0.45);
-  border-radius: var(--r-full);
-  background: rgba(0, 161, 225, 0.1);
-  color: var(--hu-blauw);
-  font-size: calc(var(--u) * 1.2);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-.uit-eyebrow::before {
-  width: calc(var(--u) * 0.55);
-  height: calc(var(--u) * 0.55);
-  border-radius: 50%;
-  background: var(--samen);
-  box-shadow: 0 0 calc(var(--u) * 0.7) var(--samen);
-  content: '';
-}
 .uit h1 {
+  position: relative;
   max-width: 10ch;
   font-size: clamp(3.2rem, calc(var(--u) * 7.4), 9.5rem);
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 0.96;
+  animation: uit-titel 7s ease-in-out infinite;
+}
+.uit h1::after {
+  position: absolute;
+  right: 8%;
+  bottom: -0.18em;
+  width: 42%;
+  height: 0.08em;
+  border-radius: var(--r-full);
+  background: linear-gradient(90deg, transparent, var(--hu-blauw), transparent);
+  content: '';
+  transform-origin: left center;
+  animation: uit-titelstreep 4.5s ease-in-out infinite;
 }
 .uit h1 span {
   color: var(--samen);
@@ -260,6 +277,7 @@
   border-radius: var(--r-full);
   background: var(--samen);
   content: '';
+  animation: uit-scan-cue 2.4s ease-in-out infinite;
 }
 .uit-url {
   margin-top: calc(var(--u) * 0.25);
@@ -324,6 +342,10 @@
 @keyframes uit-licht {
   to { background-position: 100% 20%; opacity: 0.9; }
 }
+@keyframes uit-gloed {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 65% 80%; }
+}
 @keyframes uit-binnen {
   from { opacity: 0; transform: translateY(calc(var(--u) * 1.5)); }
   to { opacity: 1; transform: translateY(0); }
@@ -334,6 +356,18 @@
 }
 @keyframes uit-deeltje {
   to { transform: translate(0.6vw, -0.8vh) scale(1.18); }
+}
+@keyframes uit-titel {
+  0%, 100% { text-shadow: 0 0 0 rgba(0, 161, 225, 0); }
+  50% { text-shadow: 0 0 calc(var(--u) * 2.2) rgba(0, 161, 225, 0.18); }
+}
+@keyframes uit-titelstreep {
+  0%, 100% { opacity: 0.35; transform: scaleX(0.55); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+@keyframes uit-scan-cue {
+  0%, 100% { transform: scaleX(0.7); opacity: 0.55; }
+  50% { transform: scaleX(1); opacity: 1; }
 }
 @keyframes uit-vorm-drijf {
   to { transform: translate(1.5vw, -2vh) scale(1.06); }
@@ -350,12 +384,17 @@
 @keyframes uit-draai {
   to { transform: rotate(360deg); }
 }
+@keyframes uit-draai-langzaam {
+  to { transform: rotate(-360deg); }
+}
 @keyframes uit-drijf {
   to { transform: translate(-2vw, -2vh) scale(1.05); }
 }
 @media (prefers-reduced-motion: reduce) {
   .uit,
   .uit::before,
+  .uit h1,
+  .uit h1::after,
   .uit-codekaart,
   .uit-kop,
   .uit-tekst,
@@ -363,6 +402,10 @@
   .uit-qr-wrap::before,
   .uit-orbit-een,
   .uit-orbit-een i,
+  .uit-orbit-twee,
+  .uit-orbit-twee::before,
+  .uit-orbit-twee::after,
+  .uit-scan::after,
   .uit-vorm-links,
   .uit-vorm-rechts,
   .uit::after { animation: none; }
