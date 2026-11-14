@@ -220,6 +220,50 @@
   font-size: calc(var(--u) * 1.65);
   line-height: 1.35;
 }
+.uit-missie {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: calc(var(--u) * 0.65) calc(var(--u) * 0.9);
+  max-width: 34ch;
+  margin-top: calc(var(--u) * 1.5);
+  color: rgba(255, 255, 255, 0.9);
+}
+.uit-missie-label {
+  grid-row: span 2;
+  padding: calc(var(--u) * 0.42) calc(var(--u) * 0.7);
+  border: 1px solid rgba(0, 199, 255, 0.55);
+  border-radius: var(--r-full);
+  color: var(--hu-navy);
+  font-size: calc(var(--u) * 0.78);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--hu-blauw);
+}
+.uit-missie-tekst {
+  margin: 0;
+  font-size: calc(var(--u) * 1.15);
+  font-weight: 800;
+  line-height: 1.25;
+  animation: uit-missie-in 0.55s cubic-bezier(.2,.8,.2,1) both;
+}
+.uit-missie-punten {
+  display: flex;
+  gap: calc(var(--u) * 0.45);
+}
+.uit-missie-punten i {
+  display: block;
+  width: calc(var(--u) * 0.48);
+  height: calc(var(--u) * 0.48);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.uit-missie-punten i.actief {
+  background: var(--samen);
+  transform: scale(1.35);
+}
 .uit-social {
   max-width: 34ch;
   margin-top: calc(var(--u) * 1.8);
@@ -235,13 +279,6 @@
 .uit-social-regel {
   font-size: calc(var(--u) * 1.05);
   font-weight: 800;
-}
-.uit-social-score {
-  margin-top: calc(var(--u) * 0.25) !important;
-  color: var(--hu-blauw);
-  font-family: var(--mono);
-  font-size: calc(var(--u) * 0.9);
-  font-weight: 700;
 }
 .uit-competitie {
   margin-top: calc(var(--u) * 0.65) !important;
@@ -468,6 +505,10 @@
   from { opacity: 0; transform: translateY(calc(var(--u) * 1.5)); }
   to { opacity: 1; transform: translateY(0); }
 }
+@keyframes uit-missie-in {
+  from { opacity: 0; transform: translateY(calc(var(--u) * 0.6)); }
+  to { opacity: 1; transform: translateY(0); }
+}
 @keyframes uit-kaart-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -540,6 +581,7 @@
   .uit-kop,
   .uit-tekst,
   .uit-voet,
+  .uit-missie-tekst,
   .uit-qr-wrap::before,
   .uit-orbit-een,
   .uit-orbit-een i,
@@ -553,6 +595,7 @@
   .uit-vorm-rechts,
   .uit-vormen i,
   .uit::after { animation: none; }
+  .uit-missie-punten i { transition: none; }
 }
 @media (max-width: 720px) {
   .uit {
@@ -577,6 +620,11 @@
   .uit-intro {
     margin-left: auto;
     margin-right: auto;
+  }
+  .uit-missie {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
   }
   .uit-social {
     margin-left: auto;

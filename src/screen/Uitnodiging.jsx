@@ -45,17 +45,30 @@ function QR({ url }) {
 export default function Uitnodiging() {
   const url = useSpeelUrl()
   const { stats, verbonden } = useLiveStats()
+  const [missieIndex, setMissieIndex] = useState(0)
   const aantalSpelers = Number.isFinite(stats?.aantalSpelers) ? stats.aantalSpelers : null
-  const scores = (stats?.ranglijst ?? []).map((speler) => speler.score).filter((score) => Number.isFinite(score))
-  const hoogsteScore = scores.length ? Math.max(...scores) : null
+  const missies = [
+    'Kun jij AI herkennen?',
+    'Welke ICT-baan past bij jou?',
+    'Mens, machine of samen?',
+    'Klaar om jouw talent te ontdekken?',
+  ]
   const socialeBewijs = !verbonden || aantalSpelers === null
-    ? 'De stand wordt zo bijgewerkt — doe mee en maak kans op nummer 1.'
+    ? 'De stand wordt zo bijgewerkt — doe mee met de competitie.'
     : aantalSpelers === 0
       ? 'Er speelt nog niemand mee — jij kunt de eerste zijn.'
       : `${aantalSpelers} ${aantalSpelers === 1 ? 'deelnemer doet' : 'deelnemers doen'} al mee.`
-  const topscore = hoogsteScore === null
-    ? 'Nog geen topscore — zet jij de eerste?'
-    : `Hoogste score: ${hoogsteScore} punten`
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    if (reduceMotion) return undefined
+
+    const timer = window.setInterval(() => {
+      setMissieIndex((index) => (index + 1) % missies.length)
+    }, 7000)
+
+    return () => window.clearInterval(timer)
+  }, [missies.length])
 
   return (
     <main className="uit">
@@ -74,9 +87,15 @@ export default function Uitnodiging() {
           <h1>AI of <span>mens</span></h1>
           <p className="uit-belofte">Doe mee in 2 minuten</p>
           <p className="uit-intro">Scan de code en ontdek welke ICT-baan bij jou past.</p>
+          <div className="uit-missie" aria-label="Missie-teaser">
+            <span className="uit-missie-label">Missie</span>
+            <p key={missieIndex} className="uit-missie-tekst" aria-live="polite" aria-atomic="true">{missies[missieIndex]}</p>
+            <span className="uit-missie-punten" aria-hidden="true">
+              {missies.map((missie, index) => <i key={missie} className={index === missieIndex ? 'actief' : ''} />)}
+            </span>
+          </div>
           <div className="uit-social" aria-live="polite">
             <p className="uit-social-regel">{socialeBewijs}</p>
-            <p className="uit-social-score">{topscore}</p>
             <p className="uit-competitie">Durf jij de nummer 1 te verslaan?</p>
           </div>
           <div className="uit-stappen" aria-label="Zo doe je mee">
