@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import QRCode from 'qrcode'
 import { Merk } from '../components/Iconen.jsx'
+import { useLiveStats } from '../lib/api.js'
 import '../styles/uitnodiging.css'
 
 function useSpeelUrl() {
@@ -43,6 +44,18 @@ function QR({ url }) {
 
 export default function Uitnodiging() {
   const url = useSpeelUrl()
+  const { stats, verbonden } = useLiveStats()
+  const aantalSpelers = Number.isFinite(stats?.aantalSpelers) ? stats.aantalSpelers : null
+  const scores = (stats?.ranglijst ?? []).map((speler) => speler.score).filter((score) => Number.isFinite(score))
+  const hoogsteScore = scores.length ? Math.max(...scores) : null
+  const socialeBewijs = !verbonden || aantalSpelers === null
+    ? 'De stand wordt zo bijgewerkt — doe mee en maak kans op nummer 1.'
+    : aantalSpelers === 0
+      ? 'Er speelt nog niemand mee — jij kunt de eerste zijn.'
+      : `${aantalSpelers} ${aantalSpelers === 1 ? 'deelnemer doet' : 'deelnemers doen'} al mee.`
+  const topscore = hoogsteScore === null
+    ? 'Nog geen topscore — zet jij de eerste?'
+    : `Hoogste score: ${hoogsteScore} punten`
 
   return (
     <main className="uit">
@@ -59,7 +72,13 @@ export default function Uitnodiging() {
       <section className="uit-inhoud">
         <div className="uit-tekst">
           <h1>AI of <span>mens</span></h1>
-          <p className="uit-intro">Scan de code, speel mee en ontdek welke ICT-baan bij jou past.</p>
+          <p className="uit-belofte">Doe mee in 2 minuten</p>
+          <p className="uit-intro">Scan de code en ontdek welke ICT-baan bij jou past.</p>
+          <div className="uit-social" aria-live="polite">
+            <p className="uit-social-regel">{socialeBewijs}</p>
+            <p className="uit-social-score">{topscore}</p>
+            <p className="uit-competitie">Durf jij de nummer 1 te verslaan?</p>
+          </div>
           <div className="uit-stappen" aria-label="Zo doe je mee">
             <span><b>1</b> Pak je telefoon</span>
             <span><b>2</b> Scan de code</span>

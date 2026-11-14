@@ -202,12 +202,51 @@
   text-shadow: 0 0 calc(var(--u) * 2) rgba(233, 101, 13, 0.25);
   animation: uit-accent-puls 4.2s ease-in-out infinite;
 }
+.uit-belofte {
+  display: inline-block;
+  margin-top: calc(var(--u) * 1.8);
+  padding: calc(var(--u) * 0.45) calc(var(--u) * 0.9);
+  border: 1px solid rgba(0, 199, 255, 0.55);
+  border-radius: var(--r-full);
+  color: var(--on-ink);
+  font-size: calc(var(--u) * 1.2);
+  font-weight: 800;
+  background: rgba(0, 161, 225, 0.14);
+}
 .uit-intro {
   max-width: 31ch;
   margin-top: calc(var(--u) * 2);
   color: rgba(255, 255, 255, 0.78);
   font-size: calc(var(--u) * 1.65);
   line-height: 1.35;
+}
+.uit-social {
+  max-width: 34ch;
+  margin-top: calc(var(--u) * 1.8);
+  padding: calc(var(--u) * 0.9) calc(var(--u) * 1.1);
+  border-left: calc(var(--u) * 0.3) solid var(--samen);
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.06);
+}
+.uit-social p {
+  margin: 0;
+  line-height: 1.35;
+}
+.uit-social-regel {
+  font-size: calc(var(--u) * 1.05);
+  font-weight: 800;
+}
+.uit-social-score {
+  margin-top: calc(var(--u) * 0.25) !important;
+  color: var(--hu-blauw);
+  font-family: var(--mono);
+  font-size: calc(var(--u) * 0.9);
+  font-weight: 700;
+}
+.uit-competitie {
+  margin-top: calc(var(--u) * 0.65) !important;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: calc(var(--u) * 0.95);
 }
 .uit-stappen {
   display: flex;
@@ -538,6 +577,11 @@
   .uit-intro {
     margin-left: auto;
     margin-right: auto;
+  }
+  .uit-social {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
   }
   .uit-stappen {
     justify-content: center;
