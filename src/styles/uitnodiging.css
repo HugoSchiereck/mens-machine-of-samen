@@ -1,0 +1,214 @@
+.uit {
+  --u: min(1vw, 1.78vh);
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: calc(var(--u) * 2.8) calc(var(--u) * 5);
+  color: var(--on-ink);
+  background: var(--hu-navy);
+}
+.uit-kop,
+.uit-voet {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+.uit-kop .merk {
+  color: var(--on-ink);
+  font-size: calc(var(--u) * 1.35);
+}
+.uit-kop .hu-logo {
+  height: calc(var(--u) * 2.6);
+}
+.uit-kop .merk-scheiding {
+  background: rgba(255, 255, 255, 0.45);
+}
+.uit-live {
+  margin-left: auto;
+  padding: calc(var(--u) * 0.55) calc(var(--u) * 1.1);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: var(--r-full);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: calc(var(--u) * 0.95);
+}
+.uit-inhoud {
+  position: relative;
+  z-index: 1;
+  width: min(100%, calc(var(--u) * 110));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: calc(var(--u) * 8);
+}
+.uit-tekst {
+  max-width: calc(var(--u) * 55);
+}
+.uit-eyebrow {
+  margin-bottom: calc(var(--u) * 1.4);
+  color: var(--hu-blauw);
+  font-size: calc(var(--u) * 1.2);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.uit h1 {
+  max-width: 10ch;
+  font-size: clamp(3.2rem, calc(var(--u) * 6.2), 8rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+}
+.uit h1 span {
+  color: var(--samen);
+}
+.uit-intro {
+  max-width: 31ch;
+  margin-top: calc(var(--u) * 2);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: calc(var(--u) * 1.65);
+  line-height: 1.35;
+}
+.uit-stappen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--u) * 1.5);
+  margin-top: calc(var(--u) * 3);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: calc(var(--u) * 1.05);
+}
+.uit-stappen span {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--u) * 0.5);
+}
+.uit-stappen b {
+  width: calc(var(--u) * 2);
+  height: calc(var(--u) * 2);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--hu-blauw);
+  color: var(--hu-navy);
+}
+.uit-codekaart {
+  width: min(calc(var(--u) * 29), 42vw);
+  padding: calc(var(--u) * 2);
+  border-radius: calc(var(--u) * 2);
+  background: var(--bg);
+  color: var(--hu-navy);
+  box-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 6) rgba(0, 0, 0, 0.22);
+  text-align: center;
+  transform: rotate(2deg);
+}
+.uit-qr-wrap {
+  padding: calc(var(--u) * 1.2);
+  border-radius: calc(var(--u) * 1.1);
+  background: white;
+}
+.uit-qr {
+  width: 100%;
+  aspect-ratio: 1;
+}
+.uit-qr svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.uit-scan {
+  margin-top: calc(var(--u) * 1.3);
+  font-size: calc(var(--u) * 1.5);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.uit-url {
+  margin-top: calc(var(--u) * 0.25);
+  color: var(--text-3);
+  font-family: var(--mono);
+  font-size: calc(var(--u) * 0.85);
+  overflow-wrap: anywhere;
+}
+.uit-voet {
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: calc(var(--u) * 0.9);
+}
+.uit-vormen {
+  display: flex;
+  gap: calc(var(--u) * 0.45);
+}
+.uit-vormen i {
+  display: block;
+  width: calc(var(--u) * 1.2);
+  height: calc(var(--u) * 1.2);
+  background: var(--hu-blauw);
+}
+.uit-vormen i:first-child {
+  border-radius: 50%;
+}
+.uit-vormen i:nth-child(2) {
+  background: var(--samen);
+  border-radius: calc(var(--u) * 0.2);
+}
+.uit-vormen i:last-child {
+  background: var(--on-ink);
+  opacity: 0.7;
+  border-radius: 50%;
+}
+.uit-vorm {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+  pointer-events: none;
+}
+.uit-vorm-links {
+  width: 45vw;
+  height: 45vw;
+  left: -28vw;
+  bottom: -28vw;
+  background: var(--hu-blauw);
+}
+.uit-vorm-rechts {
+  width: 28vw;
+  height: 28vw;
+  top: -15vw;
+  right: -10vw;
+  background: var(--samen);
+}
+@media (max-width: 720px) {
+  .uit {
+    padding: calc(var(--u) * 2) calc(var(--u) * 2.4);
+  }
+  .uit-live,
+  .uit-voet > span:first-child {
+    display: none;
+  }
+  .uit-inhoud {
+    grid-template-columns: 1fr;
+    gap: calc(var(--u) * 2);
+    justify-items: center;
+    text-align: center;
+  }
+  .uit-tekst {
+    max-width: 34rem;
+  }
+  .uit h1 {
+    margin: 0 auto;
+  }
+  .uit-intro {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .uit-stappen {
+    justify-content: center;
+  }
+  .uit-codekaart {
+    width: min(70vw, 22rem);
+  }
+  .uit-voet {
+    justify-content: flex-end;
+  }
+}

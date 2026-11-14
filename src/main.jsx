@@ -7,9 +7,17 @@ const Telefoon = lazy(() => import('./phone/TelefoonApp.jsx'))
 const GrootScherm = lazy(() => import('./screen/GrootScherm.jsx'))
 const TeamStats = lazy(() => import('./screen/TeamStats.jsx'))
 const KaartenOverzicht = lazy(() => import('./screen/KaartenOverzicht.jsx'))
+const Uitnodiging = lazy(() => import('./screen/Uitnodiging.jsx'))
 
 const pad = window.location.pathname.replace(/\/+$/, '')
-const ROUTES = { '/scherm': GrootScherm, '/stats': TeamStats, '/kaarten': KaartenOverzicht }
+const ROUTES = {
+  '/scherm': GrootScherm,
+  '/stats': TeamStats,
+  '/kaarten': KaartenOverzicht,
+  '/uitnodiging': Uitnodiging,
+  '/qr': Uitnodiging,
+  '/welkom': Uitnodiging,
+}
 const Pagina = ROUTES[pad] ?? Telefoon
 
 createRoot(document.getElementById('root')).render(
