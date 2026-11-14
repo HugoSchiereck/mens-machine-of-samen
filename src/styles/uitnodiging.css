@@ -144,15 +144,8 @@
   align-items: center;
 }
 .uit-kop { animation: uit-binnen 0.8s 0.1s both cubic-bezier(.2,.8,.2,1); }
-.uit-kop .merk {
-  color: var(--on-ink);
-  font-size: calc(var(--u) * 1.35);
-}
 .uit-kop .hu-logo {
   height: calc(var(--u) * 2.8);
-}
-.uit-kop .merk-scheiding {
-  background: rgba(255, 255, 255, 0.45);
 }
 .uit-live {
   margin-left: auto;

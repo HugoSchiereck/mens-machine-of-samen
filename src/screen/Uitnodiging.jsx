@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import QRCode from 'qrcode'
-import { Merk } from '../components/Iconen.jsx'
+import { HuLogo } from '../components/Iconen.jsx'
 import '../styles/uitnodiging.css'
 
 function useSpeelUrl() {
@@ -46,7 +46,6 @@ export default function Uitnodiging() {
   const [missieIndex, setMissieIndex] = useState(0)
   const missies = [
     'Kun jij AI herkennen?',
-    'Mens, machine of samen?',
     'Klaar om jouw talent te ontdekken?',
   ]
 
@@ -69,7 +68,7 @@ export default function Uitnodiging() {
       <div className="uit-orbit uit-orbit-een" aria-hidden="true"><i /><i /><i /></div>
       <div className="uit-orbit uit-orbit-twee" aria-hidden="true" />
       <header className="uit-kop">
-        <Merk vol />
+        <HuLogo />
         <span className="uit-live">Open dag</span>
       </header>
 
