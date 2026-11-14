@@ -119,7 +119,8 @@ Alles bouwt op één bestand: `src/styles/systeem.css`. Kleuren en hoekafronding
 - **Ronde:** `src/lib/spel.js` kiest 8 kaarten: ±30% mens, ±30% machine, ±40% samen, voorrang voor de hobbywereld, minstens twee making-ofs, nooit twee dezelfde soorten na elkaar.
 - **Punten:** 100 per goed antwoord, tot 50 snelheidsbonus, ×1,5 bij 3 op rij, ×2 bij 5 op rij. Vind de fout: 100 per fout. Making-of: 50 per fout die je ook zag.
 - **Offline:** elke stem en beoordeling gaat via een wachtrij op de telefoon en komt later alsnog binnen.
-- **Server:** `server/index.js`, zonder database. Alles van één dag staat in `data/JJJJ-MM-DD.json`. Opnieuw beginnen na het testen: server stoppen en dat bestand verwijderen.
+- **Server lokaal:** `server/index.js` gebruikt voor een snelle open-dag zonder database één bestand per dag in `data/JJJJ-MM-DD.json`.
+- **Vercel:** de functies in `api/` slaan gebeurtenissen persistent op in Neon Postgres. Maak in Vercel een `DATABASE_URL` aan met de connection string van een Neon-database (inclusief `?sslmode=require`). Bij het eerste verzoek worden `spel_events` en de benodigde index automatisch aangemaakt; er is geen filesystem-opslag in productie. `/api/stats` wordt op het grote scherm en dashboard elke drie seconden gepolld (lokale SSE blijft beschikbaar).
 - **Privacy:** alleen een bijnaam, met filter (`src/lib/bijnaam.js`).
 
 ## Nog niet gebouwd

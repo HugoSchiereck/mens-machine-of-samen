@@ -83,21 +83,34 @@ export function useLiveStats(opFeed) {
 
   useEffect(() => {
     let bron
-    let herstart
-    const verbind = () => {
+    let poll
+    let gestopt = false
+    const ophalen = async () => {
+      try {
+        const res = await fetch('/api/stats', { cache: 'no-store' })
+        if (!res.ok) throw new Error('stats')
+        const nieuw = await res.json()
+        if (!gestopt) {
+          setStats(nieuw)
+          setVerbonden(true)
+        }
+      } catch {
+        if (!gestopt) setVerbonden(false)
+      }
+    }
+    // Vercel beëindigt langdurige SSE-functies. Polling blijft daarom altijd actief;
+    // lokaal geeft SSE daarnaast directe feed-updates voor het grote scherm.
+    ophalen()
+    poll = setInterval(ophalen, 3000)
+    if (typeof EventSource !== 'undefined') {
       bron = new EventSource('/api/stream')
-      bron.addEventListener('open', () => setVerbonden(true))
       bron.addEventListener('stats', (e) => setStats(JSON.parse(e.data)))
       bron.addEventListener('feed', (e) => opFeed?.(JSON.parse(e.data)))
-      bron.addEventListener('error', () => {
-        setVerbonden(false)
-        bron.close()
-        herstart = setTimeout(verbind, 3000)
-      })
+      bron.addEventListener('error', () => bron.close())
     }
-    verbind()
     return () => {
-      clearTimeout(herstart)
+      gestopt = true
+      clearInterval(poll)
       bron?.close()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
