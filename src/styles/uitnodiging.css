@@ -8,6 +8,7 @@
   padding: calc(var(--u) * 2.8) calc(var(--u) * 5);
   color: var(--on-ink);
   isolation: isolate;
+  animation: uit-adem 10s ease-in-out infinite alternate;
   background:
     radial-gradient(circle at 76% 45%, rgba(0, 161, 225, 0.2), transparent 25%),
     radial-gradient(circle at 22% 78%, rgba(233, 101, 13, 0.12), transparent 28%),
@@ -18,6 +19,8 @@
   inset: 0;
   z-index: -2;
   background: linear-gradient(118deg, transparent 0 42%, rgba(0, 161, 225, 0.07) 42.2% 42.5%, transparent 42.7% 100%);
+  background-size: 140% 140%;
+  animation: uit-licht 14s ease-in-out infinite alternate;
   content: '';
   pointer-events: none;
 }
@@ -66,10 +69,11 @@
   border-radius: 50%;
   background: var(--hu-blauw);
   box-shadow: 0 0 calc(var(--u) * 1.2) var(--hu-blauw);
+  animation: uit-deeltje 4.5s ease-in-out infinite alternate;
 }
 .uit-orbit-een i:first-child { top: 10%; left: 19%; }
-.uit-orbit-een i:nth-child(2) { right: 7%; bottom: 25%; background: var(--samen); box-shadow: 0 0 calc(var(--u) * 1.2) var(--samen); }
-.uit-orbit-een i:last-child { bottom: 3%; left: 37%; width: calc(var(--u) * .65); height: calc(var(--u) * .65); }
+.uit-orbit-een i:nth-child(2) { right: 7%; bottom: 25%; background: var(--samen); box-shadow: 0 0 calc(var(--u) * 1.2) var(--samen); animation-delay: -1.5s; }
+.uit-orbit-een i:last-child { bottom: 3%; left: 37%; width: calc(var(--u) * .65); height: calc(var(--u) * .65); animation-delay: -3s; }
 .uit-orbit-twee {
   width: calc(var(--u) * 52);
   height: calc(var(--u) * 18);
@@ -85,6 +89,7 @@
   display: flex;
   align-items: center;
 }
+.uit-kop { animation: uit-binnen 0.8s 0.1s both cubic-bezier(.2,.8,.2,1); }
 .uit-kop .merk {
   color: var(--on-ink);
   font-size: calc(var(--u) * 1.35);
@@ -116,6 +121,7 @@
 }
 .uit-tekst {
   max-width: calc(var(--u) * 55);
+  animation: uit-binnen 0.9s 0.25s both cubic-bezier(.2,.8,.2,1);
 }
 .uit-eyebrow {
   display: inline-flex;
@@ -190,7 +196,12 @@
   box-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 6) rgba(0, 0, 0, 0.22), 0 0 calc(var(--u) * 4) rgba(0, 161, 225, 0.2);
   text-align: center;
   transform: rotate(2deg);
-  animation: uit-kaart 5s ease-in-out infinite;
+  animation: uit-kaart 5s 0.55s ease-in-out infinite, uit-kaart-in 0.95s 0.35s both cubic-bezier(.2,.8,.2,1);
+  transition: box-shadow 0.35s ease, filter 0.35s ease;
+}
+.uit-codekaart:hover {
+  filter: brightness(1.02);
+  box-shadow: 0 calc(var(--u) * 2.4) calc(var(--u) * 7) rgba(0, 0, 0, 0.28), 0 0 calc(var(--u) * 5) rgba(0, 161, 225, 0.32);
 }
 .uit-codekaart::before {
   position: absolute;
@@ -211,9 +222,19 @@
   text-transform: uppercase;
 }
 .uit-qr-wrap {
+  position: relative;
   padding: calc(var(--u) * 1.2);
   border-radius: calc(var(--u) * 1.1);
   background: white;
+}
+.uit-qr-wrap::before {
+  position: absolute;
+  inset: calc(var(--u) * -0.55);
+  border: calc(var(--u) * 0.16) solid rgba(233, 101, 13, 0.65);
+  border-radius: calc(var(--u) * 1.45);
+  content: '';
+  pointer-events: none;
+  animation: uit-scanring 3.2s ease-out infinite;
 }
 .uit-qr {
   width: 100%;
@@ -251,6 +272,7 @@
   justify-content: space-between;
   color: rgba(255, 255, 255, 0.55);
   font-size: calc(var(--u) * 0.9);
+  animation: uit-binnen 0.8s 0.75s both cubic-bezier(.2,.8,.2,1);
 }
 .uit-vormen {
   display: flex;
@@ -286,6 +308,7 @@
   left: -28vw;
   bottom: -28vw;
   background: var(--hu-blauw);
+  animation: uit-vorm-drijf 15s ease-in-out infinite alternate;
 }
 .uit-vorm-rechts {
   width: 28vw;
@@ -293,6 +316,32 @@
   top: -15vw;
   right: -10vw;
   background: var(--samen);
+  animation: uit-vorm-drijf 12s -4s ease-in-out infinite alternate-reverse;
+}
+@keyframes uit-adem {
+  to { background-color: #05053b; }
+}
+@keyframes uit-licht {
+  to { background-position: 100% 20%; opacity: 0.9; }
+}
+@keyframes uit-binnen {
+  from { opacity: 0; transform: translateY(calc(var(--u) * 1.5)); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes uit-kaart-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes uit-deeltje {
+  to { transform: translate(0.6vw, -0.8vh) scale(1.18); }
+}
+@keyframes uit-vorm-drijf {
+  to { transform: translate(1.5vw, -2vh) scale(1.06); }
+}
+@keyframes uit-scanring {
+  0%, 35% { opacity: 0; transform: scale(0.96); }
+  55% { opacity: 0.85; }
+  100% { opacity: 0; transform: scale(1.08); }
 }
 @keyframes uit-kaart {
   0%, 100% { transform: rotate(2deg) translateY(0); }
@@ -305,8 +354,17 @@
   to { transform: translate(-2vw, -2vh) scale(1.05); }
 }
 @media (prefers-reduced-motion: reduce) {
+  .uit,
+  .uit::before,
   .uit-codekaart,
+  .uit-kop,
+  .uit-tekst,
+  .uit-voet,
+  .uit-qr-wrap::before,
   .uit-orbit-een,
+  .uit-orbit-een i,
+  .uit-vorm-links,
+  .uit-vorm-rechts,
   .uit::after { animation: none; }
 }
 @media (max-width: 720px) {
