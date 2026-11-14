@@ -7,7 +7,76 @@
   grid-template-rows: auto 1fr auto;
   padding: calc(var(--u) * 2.8) calc(var(--u) * 5);
   color: var(--on-ink);
-  background: var(--hu-navy);
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 76% 45%, rgba(0, 161, 225, 0.2), transparent 25%),
+    radial-gradient(circle at 22% 78%, rgba(233, 101, 13, 0.12), transparent 28%),
+    var(--hu-navy);
+}
+.uit::before {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(118deg, transparent 0 42%, rgba(0, 161, 225, 0.07) 42.2% 42.5%, transparent 42.7% 100%);
+  content: '';
+  pointer-events: none;
+}
+.uit::after {
+  position: absolute;
+  width: 48vw;
+  height: 48vw;
+  right: -17vw;
+  bottom: -25vw;
+  z-index: -1;
+  border: 1px solid rgba(0, 161, 225, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3vw rgba(0, 161, 225, 0.04), 0 0 0 7vw rgba(0, 161, 225, 0.025);
+  content: '';
+  animation: uit-drijf 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.uit-raster {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.18;
+  background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size: calc(var(--u) * 4) calc(var(--u) * 4);
+  mask-image: linear-gradient(90deg, transparent, black 15%, black 70%, transparent);
+  pointer-events: none;
+}
+.uit-orbit {
+  position: absolute;
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.uit-orbit-een {
+  width: calc(var(--u) * 32);
+  height: calc(var(--u) * 32);
+  top: 16%;
+  left: 3%;
+  animation: uit-draai 24s linear infinite;
+}
+.uit-orbit-een i {
+  position: absolute;
+  width: calc(var(--u) * 1.2);
+  height: calc(var(--u) * 1.2);
+  border-radius: 50%;
+  background: var(--hu-blauw);
+  box-shadow: 0 0 calc(var(--u) * 1.2) var(--hu-blauw);
+}
+.uit-orbit-een i:first-child { top: 10%; left: 19%; }
+.uit-orbit-een i:nth-child(2) { right: 7%; bottom: 25%; background: var(--samen); box-shadow: 0 0 calc(var(--u) * 1.2) var(--samen); }
+.uit-orbit-een i:last-child { bottom: 3%; left: 37%; width: calc(var(--u) * .65); height: calc(var(--u) * .65); }
+.uit-orbit-twee {
+  width: calc(var(--u) * 52);
+  height: calc(var(--u) * 18);
+  right: -7%;
+  top: 25%;
+  transform: rotate(-24deg);
+  opacity: 0.5;
 }
 .uit-kop,
 .uit-voet {
@@ -33,6 +102,7 @@
   border-radius: var(--r-full);
   color: rgba(255, 255, 255, 0.8);
   font-size: calc(var(--u) * 0.95);
+  background: rgba(255, 255, 255, 0.05);
 }
 .uit-inhoud {
   position: relative;
@@ -48,22 +118,38 @@
   max-width: calc(var(--u) * 55);
 }
 .uit-eyebrow {
-  margin-bottom: calc(var(--u) * 1.4);
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--u) * 0.6);
+  margin-bottom: calc(var(--u) * 1.6);
+  padding: calc(var(--u) * 0.55) calc(var(--u) * 1);
+  border: 1px solid rgba(0, 161, 225, 0.45);
+  border-radius: var(--r-full);
+  background: rgba(0, 161, 225, 0.1);
   color: var(--hu-blauw);
   font-size: calc(var(--u) * 1.2);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
+.uit-eyebrow::before {
+  width: calc(var(--u) * 0.55);
+  height: calc(var(--u) * 0.55);
+  border-radius: 50%;
+  background: var(--samen);
+  box-shadow: 0 0 calc(var(--u) * 0.7) var(--samen);
+  content: '';
+}
 .uit h1 {
   max-width: 10ch;
-  font-size: clamp(3.2rem, calc(var(--u) * 6.2), 8rem);
+  font-size: clamp(3.2rem, calc(var(--u) * 7.4), 9.5rem);
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 0.96;
 }
 .uit h1 span {
   color: var(--samen);
+  text-shadow: 0 0 calc(var(--u) * 2) rgba(233, 101, 13, 0.25);
 }
 .uit-intro {
   max-width: 31ch;
@@ -95,14 +181,34 @@
   color: var(--hu-navy);
 }
 .uit-codekaart {
+  position: relative;
   width: min(calc(var(--u) * 29), 42vw);
-  padding: calc(var(--u) * 2);
+  padding: calc(var(--u) * 2.2);
   border-radius: calc(var(--u) * 2);
   background: var(--bg);
   color: var(--hu-navy);
-  box-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 6) rgba(0, 0, 0, 0.22);
+  box-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 6) rgba(0, 0, 0, 0.22), 0 0 calc(var(--u) * 4) rgba(0, 161, 225, 0.2);
   text-align: center;
   transform: rotate(2deg);
+  animation: uit-kaart 5s ease-in-out infinite;
+}
+.uit-codekaart::before {
+  position: absolute;
+  inset: calc(var(--u) * -0.55);
+  z-index: -1;
+  border: 1px solid rgba(0, 161, 225, 0.6);
+  border-radius: calc(var(--u) * 2.4);
+  content: '';
+  transform: rotate(-4deg);
+}
+.uit-code-label {
+  display: block;
+  margin-bottom: calc(var(--u) * 1.2);
+  color: var(--samen-text);
+  font-size: calc(var(--u) * 0.85);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .uit-qr-wrap {
   padding: calc(var(--u) * 1.2);
@@ -120,9 +226,19 @@
 }
 .uit-scan {
   margin-top: calc(var(--u) * 1.3);
+  color: var(--hu-navy);
   font-size: calc(var(--u) * 1.5);
   font-weight: 800;
   letter-spacing: -0.02em;
+}
+.uit-scan::after {
+  display: block;
+  width: 38%;
+  height: calc(var(--u) * 0.25);
+  margin: calc(var(--u) * 0.7) auto 0;
+  border-radius: var(--r-full);
+  background: var(--samen);
+  content: '';
 }
 .uit-url {
   margin-top: calc(var(--u) * 0.25);
@@ -178,6 +294,21 @@
   right: -10vw;
   background: var(--samen);
 }
+@keyframes uit-kaart {
+  0%, 100% { transform: rotate(2deg) translateY(0); }
+  50% { transform: rotate(1deg) translateY(calc(var(--u) * -0.8)); }
+}
+@keyframes uit-draai {
+  to { transform: rotate(360deg); }
+}
+@keyframes uit-drijf {
+  to { transform: translate(-2vw, -2vh) scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .uit-codekaart,
+  .uit-orbit-een,
+  .uit::after { animation: none; }
+}
 @media (max-width: 720px) {
   .uit {
     padding: calc(var(--u) * 2) calc(var(--u) * 2.4);
@@ -207,6 +338,14 @@
   }
   .uit-codekaart {
     width: min(70vw, 22rem);
+  }
+  .uit-orbit-een {
+    top: 35%;
+    left: -22%;
+  }
+  .uit-orbit-twee {
+    top: 47%;
+    right: -35%;
   }
   .uit-voet {
     justify-content: flex-end;

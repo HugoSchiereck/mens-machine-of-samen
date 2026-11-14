@@ -48,6 +48,9 @@ export default function Uitnodiging() {
     <main className="uit">
       <div className="uit-vorm uit-vorm-links" />
       <div className="uit-vorm uit-vorm-rechts" />
+      <div className="uit-raster" aria-hidden="true" />
+      <div className="uit-orbit uit-orbit-een" aria-hidden="true"><i /><i /><i /></div>
+      <div className="uit-orbit uit-orbit-twee" aria-hidden="true" />
       <header className="uit-kop">
         <Merk vol />
         <span className="uit-live">Open dag · speel mee</span>
@@ -66,6 +69,7 @@ export default function Uitnodiging() {
         </div>
 
         <div className="uit-codekaart">
+          <span className="uit-code-label">Jouw missie begint hier</span>
           <div className="uit-qr-wrap">
             <QR url={url} />
           </div>
