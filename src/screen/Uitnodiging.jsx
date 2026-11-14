@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import QRCode from 'qrcode'
 import { Merk } from '../components/Iconen.jsx'
-import { useLiveStats } from '../lib/api.js'
 import '../styles/uitnodiging.css'
 
 function useSpeelUrl() {
@@ -44,20 +43,13 @@ function QR({ url }) {
 
 export default function Uitnodiging() {
   const url = useSpeelUrl()
-  const { stats, verbonden } = useLiveStats()
   const [missieIndex, setMissieIndex] = useState(0)
-  const aantalSpelers = Number.isFinite(stats?.aantalSpelers) ? stats.aantalSpelers : null
   const missies = [
     'Kun jij AI herkennen?',
     'Welke ICT-baan past bij jou?',
     'Mens, machine of samen?',
     'Klaar om jouw talent te ontdekken?',
   ]
-  const socialeBewijs = !verbonden || aantalSpelers === null
-    ? 'De stand wordt zo bijgewerkt — doe mee met de competitie.'
-    : aantalSpelers === 0
-      ? 'Er speelt nog niemand mee — jij kunt de eerste zijn.'
-      : `${aantalSpelers} ${aantalSpelers === 1 ? 'deelnemer doet' : 'deelnemers doen'} al mee.`
 
   useEffect(() => {
     const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
@@ -93,10 +85,6 @@ export default function Uitnodiging() {
             <span className="uit-missie-punten" aria-hidden="true">
               {missies.map((missie, index) => <i key={missie} className={index === missieIndex ? 'actief' : ''} />)}
             </span>
-          </div>
-          <div className="uit-social" aria-live="polite">
-            <p className="uit-social-regel">{socialeBewijs}</p>
-            <p className="uit-competitie">Durf jij de nummer 1 te verslaan?</p>
           </div>
           <div className="uit-stappen" aria-label="Zo doe je mee">
             <span><b>1</b> Pak je telefoon</span>
