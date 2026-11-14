@@ -16,7 +16,7 @@ export const onderwerpInZin = (id) => {
 }
 
 export const KAARTEN_PER_RONDE = 8
-export const SECONDEN_PER_KAART = 10
+export const SECONDEN_PER_KAART = 30
 
 export const KEUZES = {
   mens: { label: 'Mens', richting: 'links' },

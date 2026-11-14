@@ -39,7 +39,7 @@ Ontwikkelen met automatisch herladen: `npm run dev` en open `http://localhost:51
 ## Zo loopt een bezoek
 
 1. **Lobby:** bijnaam, scholier of ouder, hobbywereld, nulmeting angst (1–5).
-2. **8 kaarten**, 10 seconden per kaart. Swipe links = mens, rechts = machine, omhoog = samen.
+2. **8 kaarten**, 30 seconden per kaart. Swipe links = mens, rechts = machine, omhoog = samen.
 3. **Onthulling** na elke kaart: antwoord, uitleg, vlakken (groen = AI, blauw = mens), banen achter deze kaart, hoe anderen stemden, tijd en resultaat.
 4. **"Hoe leuk vind je dit onderwerp?" (1–5).** Eén tik is meteen de volgende kaart.
 5. **Bonuskaart:** vind de fouten in een inlogpagina.
@@ -67,7 +67,7 @@ De startsalarissen staan in `banen.json`: bruto per maand bij 40 uur, voor start
 
 ## Verhaalkaarten
 
-Twintig kaarten gaan over echte gebeurtenissen en systemen (media-id `verhaal`, status `echt`). Elke kaart heeft een eigen illustratie (`media.beeld`, getekend in `src/components/mockups/beelden/`) met onderaan een kort bijschrift: `label` en `tekst` (houd de tekst onder de ±85 tekens, er is maar 10 seconden). Optioneel: `citaat`, en `icoon` voor als er geen illustratie is. De bron staat in `onthulling.bron`. Ze hebben geen vlakken; de uitleg staat in `onthulling.kort` en `wieDoetWat`. Een illustratie toont de situatie, nooit het antwoord: geen mensen of robots die het werk doen en geen 'AI'-labels die niet in het verhaal staan. De langere teksten van vóór de illustraties staan in `_backup-voor-illustraties-2026-11-11/`.
+Twintig kaarten gaan over echte gebeurtenissen en systemen (media-id `verhaal`, status `echt`). Elke kaart heeft een eigen illustratie (`media.beeld`, getekend in `src/components/mockups/beelden/`) met onderaan een kort bijschrift: `label` en `tekst` (houd de tekst onder de ±85 tekens, er is maar 30 seconden). Optioneel: `citaat`, en `icoon` voor als er geen illustratie is. De bron staat in `onthulling.bron`. Ze hebben geen vlakken; de uitleg staat in `onthulling.kort` en `wieDoetWat`. Een illustratie toont de situatie, nooit het antwoord: geen mensen of robots die het werk doen en geen 'AI'-labels die niet in het verhaal staan. De langere teksten van vóór de illustraties staan in `_backup-voor-illustraties-2026-11-11/`.
 
 Vier oude voorbeeldkaarten (kanker-scans, weersvoorspelling, var, muziek-jaaroverzicht) staan op `actief: false`, omdat een verhaalkaart hetzelfde onderwerp behandelt (`vervangenDoor`). Weer aanzetten: haal `actief: false` weg.
 

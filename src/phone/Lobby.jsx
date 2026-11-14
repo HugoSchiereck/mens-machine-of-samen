@@ -233,7 +233,7 @@ export function Uitleg({ onStart }) {
           </div>
         </li>
       </ul>
-      <p className="t-small">8 kaarten · 10 seconden per kaart · sneller is meer punten</p>
+      <p className="t-small">8 kaarten · 30 seconden per kaart · sneller is meer punten</p>
       <div className="onderbalk">
         <button className="btn btn-primary btn-block" onClick={onStart}>
           Start de ronde
